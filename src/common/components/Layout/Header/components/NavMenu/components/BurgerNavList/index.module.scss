@@ -1,0 +1,65 @@
+@use 'styles/scss/palette.module.scss' as colors;
+
+.buttonBurger {
+  height: 64px;
+}
+
+.subMenuBurger {
+  :global(.ant-dropdown-menu) {
+    padding: 0px 0 20px 0;
+    background-color: colors.$blue-7;
+    box-shadow: none;
+    border-radius: 0;
+    border-bottom: 1px solid colors.$blue-11;
+    border-right: 1px solid colors.$blue-11;
+    min-width: 340px;
+    max-height: calc(100vh - 100px);
+
+    &::-webkit-scrollbar {
+      width: 4px;
+      background-color: colors.$blue-13;
+    }
+    &::-webkit-scrollbar-thumb {
+      width: 4px;
+      background-color: colors.$blue-29;
+    }
+
+    li:first-child {
+      height: 64px;
+      background-color: colors.$blue-7;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    li:last-child {
+      margin-top: 36px;
+    }
+  }
+
+  :global(.ant-dropdown-menu .ant-dropdown-menu-title-content) {
+    & > a {
+      color: colors.$black;
+
+      &:hover {
+        color: colors.$black;
+      }
+    }
+  }
+
+  :global(.ant-dropdown-menu .ant-dropdown-menu-item:has(.ant-collapse)) {
+    padding: 0;
+    min-height: 54px;
+  }
+
+  :global(.ant-dropdown-menu .ant-dropdown-menu-item:not(:has(.ant-collapse))) {
+    padding-left: 32px;
+    min-height: 54px;
+  }
+
+  :global(.ant-dropdown-menu .ant-dropdown-menu-item) {
+    &:hover {
+      background-color: colors.$blue-7;
+    }
+  }
+}

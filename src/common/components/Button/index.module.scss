@@ -1,0 +1,57 @@
+@use 'styles/scss/palette.module.scss' as colors;
+
+.button {
+  &:global(.ant-btn) {
+    padding: 11px 24px;
+    line-height: normal;
+    gap: 10px;
+  }
+}
+
+.primary {
+  color: colors.$white;
+  background-color: colors.$blue-20;
+  box-shadow: 0 0 2px 0 colors.$black;
+
+  &:focus-visible {
+    &:global(.ant-btn) {
+      outline: 1px solid colors.$white;
+    }
+  }
+}
+
+.default {
+  color: colors.$blue-22;
+  background-color: colors.$blue-23;
+  box-shadow: 0 0 2px 0 colors.$black;
+  border: 1px solid colors.$blue-23;
+
+  &:focus-visible {
+    &:global(.ant-btn) {
+      outline: 1px solid colors.$blue-21;
+    }
+  }
+
+  &:disabled {
+    &:global(.ant-btn) {
+      background-color: colors.$blue-23;
+      border-color: colors.$gray-17;
+    }
+  }
+}
+
+.link {
+  text-decoration: underline;
+  &:global(.ant-btn) {
+    padding: 0;
+    height: max-content;
+  }
+
+  &:focus-visible {
+    font-weight: 500;
+
+    &:global(.ant-btn) {
+      outline: none;
+    }
+  }
+}

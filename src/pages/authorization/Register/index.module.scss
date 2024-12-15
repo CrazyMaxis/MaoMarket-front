@@ -1,0 +1,22 @@
+@use 'styles/scss/palette.module.scss' as colors;
+
+.root {
+  width: 380px;
+  border-radius: 10px;
+  box-shadow: 0 0 4px colors.$black-2;
+  padding: 50px 46px;
+  background-color: colors.$white;
+
+  .title {
+    color: colors.$blue-20;
+    font-size: 25px;
+    margin-bottom: 36px;
+    line-height: normal;
+  }
+
+  .buttonRegister {
+    width: 100%;
+    margin: 24px 0;
+    height: 40px;
+  }
+}

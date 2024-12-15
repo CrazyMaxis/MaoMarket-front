@@ -1,0 +1,31 @@
+@use 'styles/scss/palette.module.scss' as colors;
+
+.root {
+  margin-bottom: 8px;
+  .headerContent {
+    background-color: colors.$blue-44;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  .headerBlock {
+    padding: 0 32px;
+    height: 64px;
+    max-width: 1920px;
+    width: 100%;
+
+    .blockTitle {
+      .title {
+        font-size: 20px;
+        font-weight: bold;
+        color: colors.$blue-20;
+      }
+    }
+  }
+
+  .content {
+    max-width: 1920px;
+    width: 100%;
+    padding: 0 32px;
+  }
+}

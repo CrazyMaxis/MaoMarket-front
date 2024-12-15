@@ -1,0 +1,58 @@
+@use '../scss/palette.module.scss' as colors;
+@use 'sass:map';
+
+:global(.ant-notification) {
+  :global(.ant-notification-notice-wrapper) {
+    box-shadow: none;
+    border-radius: 12px;
+    .root {
+      padding: 10px 24px 24px 18px;
+
+      :global {
+        .ant-notification-notice-content {
+          .ant-notification-notice-message {
+            font-size: 14px;
+            font-weight: bold;
+            color: colors.$black;
+          }
+
+          .ant-notification-notice-description {
+            color: colors.$black;
+            font-size: 14px;
+            line-height: 22px;
+          }
+        }
+
+        .ant-notification-notice-close {
+          font-size: 7px;
+          inset-inline-end: 8px;
+          top: 10px;
+        }
+      }
+    }
+
+    $types: 'success', 'error', 'warning', 'info';
+    $colorsBackground: (
+      success: colors.$green-17,
+      error: colors.$red-12,
+      warning: colors.$orange-9,
+      info: colors.$blue-45,
+    );
+    $colorsBorder: (
+      success: colors.$green-18,
+      error: colors.$red-13,
+      warning: colors.$orange-10,
+      info: colors.$blue-46,
+    );
+
+    @each $type in $types {
+      :global {
+        .ant-notification-notice-#{$type} {
+          background-color: map.get($colorsBackground, $type);
+          border: 1px solid map.get($colorsBorder, $type);
+          border-radius: 12px;
+        }
+      }
+    }
+  }
+}

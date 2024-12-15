@@ -1,0 +1,10 @@
+.root {
+  :global(.ant-badge-count) {
+    min-width: 16px;
+    height: 16px;
+    align-items: center;
+  }
+  :global(.ant-scroll-number-only) {
+    font-size: 0.56vw;
+  }
+}

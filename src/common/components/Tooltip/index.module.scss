@@ -1,0 +1,17 @@
+@use 'styles/scss/palette.module.scss' as colors;
+
+.overlay {
+  :global(.ant-tooltip-arrow::before) {
+    background-color: colors.$white;
+  }
+
+  :global(.ant-tooltip-content) {
+    :global(.ant-tooltip-inner) {
+      box-shadow: 0px 2px 8px 0px colors.$black-1;
+      color: colors.$black;
+      background-color: colors.$white;
+      padding: 6px 8px;
+      line-height: 22px;
+    }
+  }
+}

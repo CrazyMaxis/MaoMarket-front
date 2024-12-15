@@ -1,0 +1,11 @@
+.root {
+  :global {
+    .ant-select-selector {
+      width: 100%;
+
+      .ant-select-selection-placeholder {
+        font-size: 14px;
+      }
+    }
+  }
+}

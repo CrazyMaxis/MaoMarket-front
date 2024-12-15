@@ -1,0 +1,45 @@
+@use '../scss/palette.module.scss' as var;
+
+.root {
+  &:global(
+      .ant-select-focused.ant-select-outlined:not(.ant-select-disabled)
+        .ant-select-selector
+    ) {
+    border-color: var.$blue-28 !important;
+    box-shadow: none !important;
+  }
+
+  &:global(
+      .ant-select-single.ant-select-focused.ant-select-status-error:not(
+          .ant-select-customize-input
+        )
+        .ant-select-selector
+    ) {
+    border-color: var.$input-text-error !important;
+  }
+
+  &:global(
+      .ant-select-outlined.ant-select-status-error:not(
+          .ant-select-customize-input
+        )
+        .ant-select-selector
+    ) {
+    border-color: var.$input-text-error;
+  }
+
+  &:global(
+      .ant-select-outlined.ant-select-status-error:not(
+          .ant-select-disabled
+        ):not(.ant-pagination-size-changer):hover
+        .ant-select-selector
+    ) {
+    border-color: var.$input-text-error;
+  }
+
+  &:global(:not(ant-select-disabled) .ant-select-arrow) {
+    color: var.$text-secondary;
+  }
+  &:global(.ant-select-disabled .ant-select-arrow) {
+    color: var.$text-disabled;
+  }
+}

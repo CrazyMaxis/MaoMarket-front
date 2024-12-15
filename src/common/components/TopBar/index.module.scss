@@ -1,0 +1,8 @@
+@use 'styles/scss/palette.module.scss' as colors;
+
+.root {
+  border: 1px solid colors.$gray-17;
+  border-radius: 10px;
+  background-color: colors.$blue-7;
+  padding: 12px 24px;
+}

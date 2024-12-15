@@ -1,0 +1,7 @@
+@use 'styles/scss/palette.module.scss' as colors;
+
+.root {
+  background-color: colors.$blue-27;
+  padding: 32px;
+  min-height: 70vh;
+}

@@ -1,0 +1,12 @@
+@use '../scss/palette.module.scss' as var;
+
+.root {
+  &:global(.ant-input-outlined[disabled]) {
+    border-color: var.$input-bg-disabled;
+  }
+  &:global(
+      .ant-input-outlined.ant-input-status-error:not(.ant-input-disabled)
+    ) {
+    box-shadow: none;
+  }
+}

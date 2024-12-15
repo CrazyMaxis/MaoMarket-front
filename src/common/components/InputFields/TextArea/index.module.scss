@@ -1,0 +1,7 @@
+@use 'styles/scss/palette.module.scss' as colors;
+
+.textArea {
+  &:global(.ant-input) {
+    min-height: 100px;
+  }
+}

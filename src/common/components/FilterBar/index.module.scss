@@ -1,0 +1,28 @@
+@use 'styles/scss/palette.module.scss' as colors;
+
+.root {
+  border: 1px solid colors.$gray-17;
+  border-radius: 4px;
+  background-color: colors.$blue-7;
+  padding: 16px 24px;
+
+  .formWrapper {
+    width: 100%;
+
+    :global(.ant-form-item) {
+      margin-bottom: 0;
+      min-height: 0;
+    }
+  }
+
+  .reset {
+    &:global(.ant-btn) {
+      padding: 0;
+      width: 40px;
+      height: 40px;
+    }
+    :global(.anticon) {
+      font-size: 24px;
+    }
+  }
+}

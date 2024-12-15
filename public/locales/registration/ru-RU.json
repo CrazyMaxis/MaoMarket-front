@@ -1,0 +1,15 @@
+{
+  "title": "Зарегистрироваться",
+  "labels": {
+    "name": "ФИО",
+    "email": "Email",
+    "password": "Пароль"
+  },
+  "placeholders": {
+    "name": "Введите имя",
+    "email": "Введите email",
+    "password": "Введите пароль"
+  },
+  "enter": "Зарегистрироваться",
+  "haveAccount": "У вас уже есть аккаунт?"
+}

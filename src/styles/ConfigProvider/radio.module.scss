@@ -1,0 +1,37 @@
+@use '../scss/palette.module.scss' as var;
+
+.root {
+  :global(.ant-radio-input:focus-visible + .ant-radio-inner) {
+    outline: 1px solid var.$checkbox-border-focused;
+    outline-offset: 0;
+  }
+
+  &:global(
+      .ant-radio-wrapper:hover :not(.ant-radio-disabled) .ant-radio-inner
+    ) {
+    border-color: var.$btn-primary-hover;
+  }
+
+  :global(.ant-radio-disabled .ant-radio-inner) {
+    border-color: var.$checkbox-bg-disabled;
+  }
+
+  :global(.ant-radio-checked:not(.ant-radio-disabled)) {
+    & :global(.ant-radio-inner) {
+      background-color: initial;
+    }
+
+    & :global(.ant-radio-inner):after {
+      background-color: var.$btn-primary-bg;
+    }
+  }
+
+  :global(.ant-radio-checked.ant-radio-disabled) {
+    &:global(.ant-radio:hover:after) {
+      border-color: var.$checkbox-bg-disabled;
+    }
+    :global(.ant-radio-inner:after) {
+      transform: scale(0.5);
+    }
+  }
+}

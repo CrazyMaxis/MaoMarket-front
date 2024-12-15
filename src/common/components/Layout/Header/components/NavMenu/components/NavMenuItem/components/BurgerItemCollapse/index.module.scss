@@ -1,0 +1,46 @@
+@use 'styles/scss/palette.module.scss' as colors;
+
+.collapseNav {
+  width: 100%;
+
+  :global {
+    .ant-collapse-item > .ant-collapse-header {
+      padding: 0;
+      padding-left: 32px;
+      color: colors.$black;
+      min-height: 54px;
+
+      &:first-child {
+        background-color: transparent;
+      }
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .ant-collapse-content-active,
+    .ant-collapse-content {
+      .ant-collapse-content-box:first-child {
+        background-color: colors.$blue-24;
+        padding: 0;
+      }
+    }
+  }
+
+  .collapseLinkButton {
+    min-height: 50px;
+    padding: 5px 0;
+    padding-left: 32px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    color: colors.$black;
+
+    &:hover {
+      color: colors.$black;
+      text-decoration: underline;
+    }
+  }
+}

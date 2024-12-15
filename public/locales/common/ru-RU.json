@@ -1,0 +1,7 @@
+{
+  "resetFilters": "Сбросить фильтры",
+  "schemesMessages": {
+    "REQUIRED": "Обязательное поле"
+  },
+  "paginationRange": "{{start}}-{{end}} из {{total}}"
+}

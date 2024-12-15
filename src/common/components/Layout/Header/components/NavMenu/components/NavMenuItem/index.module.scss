@@ -1,0 +1,36 @@
+@use 'styles/scss/palette.module.scss' as colors;
+
+.linkButton {
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  color: colors.$black;
+
+  &:hover {
+    color: colors.$black;
+    text-decoration: underline;
+
+    &:global(.ant-btn-color-primary.ant-btn-variant-link) {
+      color: colors.$black;
+    }
+  }
+
+  :global(.ant-btn-icon) {
+    svg {
+      font-size: 12px;
+    }
+  }
+
+  &:global(.ant-dropdown-trigger.ant-dropdown-open) {
+    :global(.anticon) {
+      transition: transform 0.2s ease-in-out;
+      transform: rotate(180deg);
+    }
+  }
+
+  &:global(.ant-dropdown-trigger) {
+    :global(.anticon) {
+      transition: transform 0.2s ease-in-out;
+    }
+  }
+}

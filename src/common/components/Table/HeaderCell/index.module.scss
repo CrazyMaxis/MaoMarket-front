@@ -1,0 +1,24 @@
+@use 'styles/scss/palette.module.scss' as colors;
+
+.headerCell {
+  height: 50px;
+  margin: -8px;
+  padding: 8px;
+
+  &:hover {
+    background-color: colors.$blue-36;
+    cursor: pointer;
+  }
+
+  .sortIcon {
+    width: 24px;
+    font-size: 14px;
+    color: colors.$gray-20;
+    padding-left: 4px;
+
+    &.arrowsIcon {
+      padding-left: 0px;
+      font-size: 32px;
+    }
+  }
+}

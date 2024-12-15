@@ -1,0 +1,12 @@
+@use 'styles/scss/palette.module.scss' as colors;
+
+.root {
+  height: 40px;
+  width: 100%;
+  min-width: 0;
+
+  .icon {
+    color: colors.$gray-20;
+    font-size: 13px;
+  }
+}

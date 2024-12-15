@@ -1,0 +1,18 @@
+@use 'styles/scss/palette.module.scss' as colors;
+
+.input {
+  &:global(.ant-input.ant-input-outlined.ant-input-disabled) {
+    border-color: colors.$gray-17;
+  }
+
+  :global(.ant-input-show-count-suffix) {
+    position: absolute;
+    right: 0px;
+    top: 40px;
+  }
+
+  &::placeholder {
+    font-size: 14px;
+    font-family: Roboto;
+  }
+}

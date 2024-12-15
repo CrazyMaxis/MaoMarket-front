@@ -1,0 +1,40 @@
+@use 'styles/scss/palette.module.scss' as colors;
+
+.root {
+  :global {
+    .ant-drawer-content-wrapper {
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+      overflow: hidden;
+
+      .ant-drawer-content {
+        .ant-drawer-header {
+          background-color: colors.$blue-47;
+          border-bottom: none;
+          padding: 24px;
+
+          .ant-drawer-header-title {
+            flex-direction: row-reverse;
+
+            .ant-drawer-title {
+              font-size: 14px;
+            }
+
+            .ant-drawer-close {
+              margin-inline-end: 0;
+              font-size: 18px;
+            }
+          }
+
+          .ant-drawer-extra {
+            margin-left: 8px;
+          }
+        }
+
+        .ant-drawer-body {
+          padding: 8px 24;
+        }
+      }
+    }
+  }
+}

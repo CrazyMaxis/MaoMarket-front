@@ -1,0 +1,92 @@
+@use 'styles/scss/palette.module.scss' as colors;
+
+.table {
+  border: 1px solid colors.$gray-17;
+  border-radius: 10px;
+
+  :global {
+    .ant-table-thead > tr > th {
+      font-weight: 700;
+    }
+
+    .ant-checkbox-indeterminate {
+      .ant-checkbox-inner {
+        background-color: colors.$blue-20 !important;
+      }
+    }
+
+    .ant-table-tbody > tr > td {
+      cursor: pointer;
+    }
+    .ant-table-thead {
+      height: 50px;
+
+      th:first-child {
+        &:global(.ant-table-cell) {
+          div {
+            border-radius: 8px 0 0 0;
+          }
+        }
+      }
+
+      th:last-child {
+        &:global(.ant-table-cell) {
+          div {
+            border-radius: 0 8px 0 0;
+          }
+        }
+      }
+    }
+
+    .ant-table-row {
+      height: 40px;
+    }
+
+    .ant-table-pagination.ant-pagination {
+      padding-right: 16px;
+      margin: 12px 0;
+    }
+
+    .ant-pagination.ant-pagination-mini .ant-pagination-item,
+    .ant-pagination.ant-pagination-mini .ant-pagination-prev,
+    .ant-pagination.ant-pagination-mini .ant-pagination-next {
+      height: 30px;
+      line-height: 28px;
+      min-width: 30px;
+      margin-inline-end: 2px;
+    }
+  }
+
+  .paginationInfo {
+    line-height: 22px;
+    font-weight: 700;
+    margin: 4px 12px 0px 0px;
+  }
+}
+
+.tableWrapper {
+  position: relative;
+
+  .loading {
+    position: absolute;
+    left: 50%;
+    top: 70px;
+    transform: translate(-50%, 0%);
+    z-index: 2;
+  }
+}
+
+.tableLoadingBackground {
+  &:after {
+    border-radius: 10px;
+    opacity: 0.3;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: colors.$blue-37;
+    z-index: 1;
+  }
+}

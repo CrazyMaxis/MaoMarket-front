@@ -1,0 +1,38 @@
+@use 'styles/scss/palette.module.scss' as colors;
+
+.root {
+  display: flex;
+  justify-content: center;
+  font-size: 12px;
+  width: 100%;
+  background-color: colors.$blue-7;
+
+  .footerContent {
+    max-width: 1920px;
+    width: 100%;
+    padding: 24px 32px;
+
+    .contactBlock {
+      max-width: 360px;
+
+      .title {
+        font-weight: bold;
+        margin-bottom: 16px;
+        font-size: 14px;
+      }
+      .name {
+        margin-bottom: 10px;
+      }
+    }
+
+    .copyright {
+      color: colors.$gray-20;
+    }
+
+    .linkButton {
+      font-size: 12px;
+      color: colors.$black;
+      font-weight: bold;
+    }
+  }
+}

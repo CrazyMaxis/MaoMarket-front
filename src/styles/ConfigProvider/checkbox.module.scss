@@ -1,0 +1,93 @@
+@use '../scss/palette.module.scss' as var;
+
+.root {
+  :global(.ant-checkbox-checked .ant-checkbox-inner:after) {
+    transform: rotate(45deg) scale(0.9) translate(-60%, -60%);
+  }
+  :global(.ant-checkbox:not(.ant-checkbox-disabled):hover .ant-checkbox-inner) {
+    border-color: var.$checkbox-border-hover;
+  }
+
+  &:global(.ant-checkbox-wrapper-disabled) {
+    &:global(.ant-checkbox-wrapper-checked) {
+      & :global(.ant-checkbox-inner) {
+        border-color: transparent;
+      }
+    }
+
+    & :global(.ant-checkbox-inner) {
+      border-color: var.$checkbox-unchecked-border-disabled;
+    }
+  }
+
+  :global(
+    .ant-checkbox .ant-checkbox-input:focus-visible + .ant-checkbox-inner
+  ) {
+    border: 1px solid var.$checkbox-unchecked-border-focused;
+    outline: none;
+  }
+  &:global(
+      .ant-checkbox-wrapper-checked
+        .ant-checkbox
+        .ant-checkbox-input:focus-visible
+        + .ant-checkbox-inner
+    ) {
+    border: 1px solid var.$checkbox-border-focused;
+    outline: none;
+  }
+
+  &:global(
+      .ant-checkbox-wrapper-disabled
+        .ant-checkbox-indeterminate
+        .ant-checkbox-inner
+    ) {
+    background-color: var.$checkbox-unchecked-border-disabled;
+  }
+  :global(.ant-checkbox-indeterminate) {
+    &:global(
+        .ant-checkbox .ant-checkbox-input:focus-visible + .ant-checkbox-inner
+      ) {
+      border: 1px solid var.$checkbox-border-focused;
+      outline: none;
+    }
+    :global(.ant-checkbox-inner) {
+      background-color: var.$btn-primary-bg;
+      border: none;
+
+      &:after {
+        width: 8px;
+        height: 2px;
+        background-color: var.$white;
+      }
+    }
+    &:hover {
+      :global(.ant-checkbox-inner) {
+        background-color: var.$btn-primary-hover;
+      }
+    }
+  }
+
+  &:global(.card) {
+    :global(.ant-checkbox .ant-checkbox-inner) {
+      border: 1.5px solid var.$checkbox-border-card;
+    }
+
+    &:global(.ant-checkbox-wrapper-checked) {
+      & :global(.ant-checkbox-inner) {
+        border-color: transparent;
+      }
+    }
+
+    :global(
+      .ant-checkbox:not(.ant-checkbox-disabled):hover .ant-checkbox-inner
+    ) {
+      border-color: var.$btn-primary-bg;
+    }
+
+    :global(
+      .ant-checkbox .ant-checkbox-input:focus-visible + .ant-checkbox-inner
+    ) {
+      border-width: 1.5px;
+    }
+  }
+}

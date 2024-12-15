@@ -1,0 +1,29 @@
+@use 'styles/scss/palette.module.scss' as colors;
+
+.tabWrapper {
+  margin-bottom: 16px;
+
+  .tabItem {
+    position: relative;
+    padding: 0px 32px 12px;
+    line-height: 22px;
+    text-align: center;
+    color: colors.$black;
+
+    &.active {
+      color: colors.$blue-20;
+      font-weight: 700;
+
+      &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 4px;
+        width: 100%;
+        border-radius: 4px 4px 0 0;
+        background-color: colors.$blue-20;
+      }
+    }
+  }
+}

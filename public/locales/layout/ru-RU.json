@@ -1,0 +1,24 @@
+{
+  "header": {
+    "userProfile": {
+      "login": "Войти",
+      "logout": "Выйти",
+      "profile": "Профиль"
+    }
+  },
+  "footer": {
+    "contacts": {
+      "title": "Контакты:",
+      "mainInfo": "Эл. почта: maomarket@gmail.com<br/>Телефон: +375299661446"
+    },
+    "copyright": "© {{currentYear}} - MaoMarket"
+  },
+  "navMenu": {
+    "items": {
+      "news": "Новости",
+      "advertisements": "Объявления",
+      "aboutUs": "Почему мы",
+      "administrationPanel": "Панель администрирования"
+    }
+  }
+}

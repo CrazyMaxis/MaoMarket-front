@@ -1,0 +1,5 @@
+@use 'styles/scss/palette.module.scss' as colors;
+
+.searchIcon {
+  color: colors.$gray-20;
+}

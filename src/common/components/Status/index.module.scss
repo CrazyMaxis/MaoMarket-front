@@ -1,0 +1,37 @@
+@use 'styles/scss/palette.module.scss' as colors;
+
+.root {
+  padding: 8px 16px;
+  border-radius: 100px;
+  line-height: 22px;
+  width: max-content;
+}
+
+.default {
+  background-color: colors.$gray-22;
+}
+
+.ghost {
+  background-color: colors.$gray-22;
+  color: colors.$gray-18;
+}
+
+.success {
+  background-color: colors.$green-12;
+  color: colors.$green-13;
+}
+
+.error {
+  background-color: colors.$red-6;
+  color: colors.$red-5;
+}
+
+.progress {
+  background-color: colors.$blue-31;
+  color: colors.$blue-17;
+}
+
+.attention {
+  background-color: colors.$orange-7;
+  color: colors.$orange-8;
+}

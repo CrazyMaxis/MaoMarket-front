@@ -1,0 +1,38 @@
+@use 'styles/scss/palette.module.scss' as colors;
+
+.pagination {
+  :global {
+    .ant-pagination-item,
+    .ant-pagination-jump-next,
+    .ant-pagination-prev {
+      margin-inline-end: 2px;
+    }
+
+    .ant-pagination-total-text {
+      margin-inline-end: 16px;
+    }
+
+    .ant-pagination-total-text {
+      font-weight: 700;
+    }
+
+    .ant-pagination-item-ellipsis {
+      color: colors.$black !important;
+      top: 3px !important;
+    }
+
+    .ant-pagination-item-link-icon {
+      color: colors.$black !important;
+    }
+  }
+
+  .arrowButtonStyle {
+    border-radius: 6px;
+    padding: 6px 6px;
+    height: max-content;
+
+    svg {
+      font-size: 18px;
+    }
+  }
+}

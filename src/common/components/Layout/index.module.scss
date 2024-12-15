@@ -1,0 +1,6 @@
+@use 'styles/scss/palette.module.scss' as colors;
+
+.wrapper {
+  min-height: 100vh;
+  background-color: colors.$white;
+}

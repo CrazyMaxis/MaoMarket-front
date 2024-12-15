@@ -1,0 +1,21 @@
+.content {
+  padding: 10px;
+
+  .icon {
+    svg {
+      font-size: 20px;
+    }
+  }
+
+  .title {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 21px;
+  }
+}
+
+.modal {
+  :global(.ant-modal-content) {
+    padding: 28px;
+  }
+}

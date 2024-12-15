@@ -1,0 +1,9 @@
+@use 'styles/scss/palette.module.scss' as colors;
+
+.asterisk {
+  color: colors.$red-4;
+  font-size: 14px;
+  padding-left: 2px;
+  position: relative;
+  right: 0px;
+}

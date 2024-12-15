@@ -1,0 +1,15 @@
+{
+  "title": "Вход в систему",
+  "labels": {
+    "email": "Email",
+    "password": "Пароль"
+  },
+  "placeholders": {
+    "email": "Введите email",
+    "password": "Введите пароль"
+  },
+  "enter": "Войти",
+  "forgot": "Забыли пароль?",
+  "errorAuth": "Набран неправильный email или пароль",
+  "haventAccount": "Зарегистрироваться"
+}

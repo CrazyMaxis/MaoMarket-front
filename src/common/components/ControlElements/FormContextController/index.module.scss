@@ -1,0 +1,25 @@
+@use 'styles/scss/palette.module.scss' as colors;
+
+.item {
+  :global(.ant-form-item-explain) {
+    font-size: 12px;
+  }
+
+  &:global(.ant-form-item .ant-form-item-label) {
+    min-height: 22px;
+  }
+
+  &:global(.ant-form-item:not(.ant-form-item-horizontal) .ant-form-item-label) {
+    padding-bottom: 0;
+  }
+
+  &:global(.ant-form-item:not(.ant-form-item-vertical) .ant-form-item-label) {
+    margin: auto;
+  }
+}
+
+.disabledItem {
+  :global(.ant-form-item-label > label) {
+    color: colors.$gray-18;
+  }
+}

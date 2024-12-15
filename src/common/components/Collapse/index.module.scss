@@ -1,0 +1,35 @@
+@use 'styles/scss/palette.module.scss' as colors;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  &:global(.ant-collapse > .ant-collapse-item > .ant-collapse-header) {
+    align-items: center;
+    flex-direction: row-reverse;
+    background-color: colors.$blue-44;
+    font-size: 16px;
+    font-weight: bold;
+    height: 42px;
+    border-radius: 10px;
+  }
+
+  &:global(
+      .ant-collapse
+        .ant-collapse-item:not(.hidePadding)
+        .ant-collapse-content
+        .ant-collapse-content-box
+    ) {
+    padding: 16px 0 24px 0;
+  }
+
+  &:global(
+      .ant-collapse
+        .ant-collapse-item.hidePadding
+        .ant-collapse-content
+        .ant-collapse-content-box
+    ) {
+    padding: 16px 0 0 0;
+  }
+}

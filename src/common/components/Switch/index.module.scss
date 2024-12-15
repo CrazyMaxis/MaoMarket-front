@@ -1,0 +1,20 @@
+@use '../../../styles/scss/palette.module.scss' as colors;
+
+.root {
+  .switch {
+    &:focus-visible {
+      &:global(.ant-switch) {
+        outline: 1px solid colors.$green-3;
+      }
+    }
+  }
+
+  .label {
+    line-height: 22px;
+    color: colors.$black;
+  }
+
+  .disabledLabel {
+    color: colors.$gray-20;
+  }
+}

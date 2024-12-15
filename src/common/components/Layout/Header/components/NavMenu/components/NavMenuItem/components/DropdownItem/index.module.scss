@@ -1,0 +1,14 @@
+@use 'styles/scss/palette.module.scss' as colors;
+
+.subMenu {
+  min-width: 240px;
+
+  :global(.ant-dropdown-menu) {
+    box-shadow: 0 0 4px colors.$black-2;
+  }
+
+  :global(.ant-dropdown-menu > .ant-dropdown-menu-item) {
+    font-size: 14px;
+    color: colors.$black;
+  }
+}
