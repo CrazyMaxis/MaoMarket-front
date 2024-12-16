@@ -9,11 +9,13 @@ import {
 import { yupResolver } from '@hookform/resolvers/yup';
 import {
   clearError,
+  getStateAuth,
   getStateAuthError,
+  getStateVerifyError,
   login,
 } from 'reduxApp/authentification';
 import { useAppDispatch, useAppSelector } from 'hooks/customReduxHooks';
-import { PATH } from 'routes/path';
+import { PATH, PATH_AUTHORIZATION } from 'routes/path';
 
 export const useLogin = () => {
   const { t } = useTranslation('authorization');
@@ -22,14 +24,28 @@ export const useLogin = () => {
   });
   const dispatch = useAppDispatch();
   const isError = useAppSelector((state) => getStateAuthError(state));
+  const isVerifyError = useAppSelector((state) => getStateVerifyError(state));
+  const isAuth = useAppSelector((state) => getStateAuth(state));
   const navigate = useNavigate();
 
   const { setError, watch, clearErrors, handleSubmit } = methods;
 
   const onLogin = async (data: AuthorizationScheme) => {
     dispatch(login(data));
-    navigate(PATH.HOME);
   };
+
+  useEffect(() => {
+    if (isAuth) {
+      navigate(PATH.HOME);
+    }
+  }, [isAuth]);
+
+  useEffect(() => {
+    if (isVerifyError) {
+      navigate(`${PATH.AUTHARIZATION}/${PATH_AUTHORIZATION.VERIFY}`);
+      dispatch(clearError());
+    }
+  }, [isVerifyError]);
 
   useEffect(() => {
     const subscription = watch(() => {

@@ -1,7 +1,7 @@
 import { FormProvider } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { Col, Flex, Row } from 'antd';
+import { Col, Row } from 'antd';
 import { getStateAuthLoading } from 'reduxApp/authentification';
 import { Button, InputControl } from 'components';
 import { useAppSelector } from 'hooks/customReduxHooks';
@@ -58,12 +58,9 @@ const Login = () => {
             </Button>
           </Col>
           <Col span={24}>
-            <Flex justify="space-between">
-              <Button type="link" onClick={onClick}>
-                {t('haventAccount')}
-              </Button>
-              <Button type="link">{t('forgot')}</Button>
-            </Flex>
+            <Button type="link" onClick={onClick}>
+              {t('haventAccount')}
+            </Button>
           </Col>
         </Row>
       </form>

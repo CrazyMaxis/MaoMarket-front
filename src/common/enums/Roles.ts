@@ -3,5 +3,5 @@ export enum Roles {
   MODERATOR = 'Moderator',
   NEWS_EDITOR = 'NewsEditor',
   VERIFIED_USER = 'VerifiedUser',
-  USER = 'USER',
+  USER = 'User',
 }

@@ -1,0 +1,31 @@
+{
+  "title": "Профиль пользователя",
+  "edit": "Редактировать",
+  "cancel": "Отмена",
+  "save": "Сохранить",
+  "labelsCollapse": {
+    "generalData": "Основная информация",
+    "catsInfo": "Информация о котах"
+  },
+  "view": {
+    "generalData": {
+      "fullname": "ФИО",
+      "email": "Email",
+      "role": "Роль",
+      "isVerify": "Верефикация",
+      "verifyRequestAlready": "Вы уже отправили запрос на верификацию",
+      "verifyRequest": "Отправить запрос на верификацию"
+    }
+  },
+  "form": {
+    "title": "Редактирование профиля",
+    "labels": {
+      "name": "ФИО",
+      "email": "Email"
+    },
+    "placeholders": {
+      "name": "Введите ФИО",
+      "email": "Введите Email"
+    }
+  }
+}

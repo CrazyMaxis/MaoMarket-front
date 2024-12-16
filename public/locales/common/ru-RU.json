@@ -3,5 +3,16 @@
   "schemesMessages": {
     "REQUIRED": "Обязательное поле"
   },
-  "paginationRange": "{{start}}-{{end}} из {{total}}"
+  "paginationRange": "{{start}}-{{end}} из {{total}}",
+  "role": {
+    "Administrator": "администратор",
+    "Moderator": "модератор",
+    "NewsEditor": "редактор новостей",
+    "VerifiedUser": "верифицированный пользователь",
+    "User": "неверифицированный пользователь"
+  },
+  "gender": {
+    "Male": "кот",
+    "Female": "кошка"
+  }
 }

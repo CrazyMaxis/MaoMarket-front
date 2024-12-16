@@ -6,5 +6,5 @@ export interface IUserInstance {
   email: string;
   role: Roles;
   isBlocked: boolean;
-  VerificationRequested: boolean;
+  verificationRequested: boolean;
 }

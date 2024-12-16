@@ -17,7 +17,7 @@ const UserDropdownContent = () => {
       {isAuth ? (
         <>
           <Button>
-            <Link to="/profile">{t('profile')}</Link>
+            <Link to={PATH.PROFILE}>{t('profile')}</Link>
           </Button>
           <Button onClick={onLogout}>{t('logout')}</Button>
         </>

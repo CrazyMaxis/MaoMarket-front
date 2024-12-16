@@ -1,4 +1,5 @@
 import AuthService from 'api/services/AuthService';
+import { AxiosError } from 'axios';
 import Cookies from 'js-cookie';
 import { IUserInstance } from 'models/IUserInstance';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
@@ -13,7 +14,8 @@ export const login = createAsyncThunk(
       const authResponse = (await AuthService.login(email, password)).data;
       return { data: authResponse };
     } catch (error) {
-      return rejectWithValue(error);
+      const axiosError = error as AxiosError;
+      return rejectWithValue(axiosError);
     }
   },
 );
@@ -32,7 +34,6 @@ export const register = createAsyncThunk(
       const registerResponse = (
         await AuthService.register(name, email, password)
       ).data;
-      console.log(registerResponse);
       return { data: registerResponse };
     } catch (error) {
       return rejectWithValue(error);
@@ -79,12 +80,14 @@ interface AuthState {
   isAuth: boolean;
   isLoading: boolean;
   isError: boolean;
+  isVerifyError: boolean;
 }
 
 const initialState: AuthState = {
   isAuth: !!Cookies.get('AccessToken'),
   isLoading: false,
   isError: false,
+  isVerifyError: false,
 };
 
 export const slice = createSlice({
@@ -92,7 +95,7 @@ export const slice = createSlice({
   initialState,
   reducers: {
     logout: (state) => {
-      state.user = undefined;
+      state.user = {} as IUserInstance;
       state.isAuth = false;
       state.isLoading = false;
       Cookies.remove('AccessToken');
@@ -100,6 +103,7 @@ export const slice = createSlice({
     },
     clearError: (state) => {
       state.isError = false;
+      state.isVerifyError = false;
     },
   },
   extraReducers: (builder) => {
@@ -107,6 +111,11 @@ export const slice = createSlice({
       .addCase(login.fulfilled, (state, action) => {
         state.user = action.payload.data.user;
         state.isAuth = true;
+      })
+      .addCase(login.rejected, (state, action) => {
+        const payload = action.payload as AxiosError<{ user: IUserInstance }>;
+        state.isVerifyError = payload.status == 403;
+        state.user = payload?.response?.data?.user;
       })
       .addCase(register.fulfilled, (state, action) => {
         state.isAuth = false;
@@ -118,7 +127,8 @@ export const slice = createSlice({
       })
       .addCase(checkAuth.fulfilled, (state, action) => {
         state.isAuth = true;
-        state.user = action.payload.data;
+        state.isLoading = false;
+        state.user = action.payload.data.user;
       })
       .addCase(logoutUser.fulfilled, (state) => {
         state.isAuth = false;
@@ -144,13 +154,19 @@ export const slice = createSlice({
   selectors: {
     getUser: (state) => state.user,
     getStateAuth: (state) => state.isAuth,
+    getStateVerifyError: (state) => state.isVerifyError,
     getStateAuthError: (state) => state.isError,
     getStateAuthLoading: (state) => state.isLoading,
   },
 });
 
 export const { logout, clearError } = slice.actions;
-export const { getUser, getStateAuth, getStateAuthError, getStateAuthLoading } =
-  slice.selectors;
+export const {
+  getUser,
+  getStateAuth,
+  getStateVerifyError,
+  getStateAuthError,
+  getStateAuthLoading,
+} = slice.selectors;
 
 export default slice.reducer;

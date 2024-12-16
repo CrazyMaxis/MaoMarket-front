@@ -1,7 +1,7 @@
 import { FormProvider } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { Col, Flex, Row } from 'antd';
+import { Col, Row } from 'antd';
 import { getStateAuthLoading } from 'reduxApp/authentification';
 import { Button, InputControl } from 'components';
 import { useAppSelector } from 'hooks/customReduxHooks';
@@ -68,11 +68,9 @@ const Register = () => {
             </Button>
           </Col>
           <Col span={24}>
-            <Flex>
-              <Button type="link" onClick={onClick}>
-                {t('haveAccount')}
-              </Button>
-            </Flex>
+            <Button type="link" onClick={onClick}>
+              {t('haveAccount')}
+            </Button>
           </Col>
         </Row>
       </form>
