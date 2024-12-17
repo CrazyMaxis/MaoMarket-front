@@ -111,6 +111,7 @@ export const slice = createSlice({
       .addCase(login.fulfilled, (state, action) => {
         state.user = action.payload.data.user;
         state.isAuth = true;
+        state.isLoading = false;
       })
       .addCase(login.rejected, (state, action) => {
         const payload = action.payload as AxiosError<{ user: IUserInstance }>;
@@ -124,11 +125,15 @@ export const slice = createSlice({
       })
       .addCase(verify.fulfilled, (state) => {
         state.isAuth = true;
+        state.isLoading = false;
       })
       .addCase(checkAuth.fulfilled, (state, action) => {
         state.isAuth = true;
         state.isLoading = false;
         state.user = action.payload.data.user;
+      })
+      .addCase(checkAuth.rejected, (state) => {
+        state.isLoading = false;
       })
       .addCase(logoutUser.fulfilled, (state) => {
         state.isAuth = false;
@@ -144,7 +149,9 @@ export const slice = createSlice({
         },
       )
       .addMatcher(
-        (action) => action.type.endsWith('/rejected'),
+        (action) =>
+          action.type.endsWith('/rejected') &&
+          !action.type.startsWith('authentification/checkAuth'),
         (state) => {
           state.isLoading = false;
           state.isError = true;

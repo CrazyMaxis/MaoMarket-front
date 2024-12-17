@@ -1,13 +1,16 @@
 import { lazy, ReactNode } from 'react';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+  useNavigate,
+} from 'react-router-dom';
 import { Flex, Spin } from 'antd';
-import { Content } from 'antd/es/layout/layout';
 import { Roles } from 'enums/Roles';
 import { CommonLayout } from 'components';
 import { useAppSelector } from 'hooks/customReduxHooks';
 import Page from './components/Page';
 import { PATH, PATH_AUTHORIZATION } from './path';
-import styles from './index.module.scss';
 
 const Home = lazy(() => import('pages/home'));
 const Authorization = lazy(() => import('pages/authorization'));
@@ -17,6 +20,8 @@ const Verify = lazy(() => import('pages/authorization/Verify'));
 
 const Profile = lazy(() => import('pages/profile/View'));
 const ProfileEdit = lazy(() => import('pages/profile/Edit'));
+
+const CatCreate = lazy(() => import('pages/cat/Create'));
 
 const ProtectedRouteByRole = ({
   roles,
@@ -39,6 +44,54 @@ const ProtectedRouteByRole = ({
   );
 };
 
+type ProtectedRouteByAuthProps = {
+  children: ReactNode;
+};
+
+const ProtectedRouteByAuth = ({ children }: ProtectedRouteByAuthProps) => {
+  const isAuth = useAppSelector((state) => state.auth.isAuth);
+  const navigate = useNavigate();
+
+  if (isAuth === undefined) {
+    return (
+      <Flex align="center" justify="center" style={{ height: '400px' }}>
+        <Spin size="large" />
+      </Flex>
+    );
+  }
+
+  if (!isAuth) {
+    navigate(PATH.HOME);
+  }
+
+  return <>{children}</>;
+};
+
+type ProtectedRouteByNotAuthProps = {
+  children: ReactNode;
+};
+
+const ProtectedRouteByNotAuth = ({
+  children,
+}: ProtectedRouteByNotAuthProps) => {
+  const isAuth = useAppSelector((state) => state.auth.isAuth);
+  const navigate = useNavigate();
+
+  if (isAuth === undefined) {
+    return (
+      <Flex align="center" justify="center" style={{ height: '400px' }}>
+        <Spin size="large" />
+      </Flex>
+    );
+  }
+
+  if (isAuth) {
+    navigate(PATH.HOME);
+  }
+
+  return <>{children}</>;
+};
+
 export const Router = () => (
   <RouterProvider
     router={createBrowserRouter(
@@ -46,11 +99,7 @@ export const Router = () => (
         {
           element: <CommonLayout />,
           path: PATH.HOME,
-          errorElement: (
-            <Content className={styles.content}>
-              <h2>Not Found</h2>
-            </Content>
-          ),
+          errorElement: <Navigate to={PATH.HOME} />,
           children: [
             {
               path: PATH.HOME,
@@ -59,7 +108,11 @@ export const Router = () => (
             },
             {
               path: PATH.AUTHARIZATION,
-              element: <Authorization />,
+              element: (
+                <ProtectedRouteByNotAuth>
+                  <Authorization />
+                </ProtectedRouteByNotAuth>
+              ),
               children: [
                 {
                   path: PATH_AUTHORIZATION.LOGIN,
@@ -78,7 +131,11 @@ export const Router = () => (
             },
             {
               path: PATH.PROFILE,
-              element: <Page />,
+              element: (
+                <ProtectedRouteByAuth>
+                  <Page />
+                </ProtectedRouteByAuth>
+              ),
               children: [
                 {
                   element: <Profile />,
@@ -87,6 +144,16 @@ export const Router = () => (
                 {
                   path: 'edit',
                   element: <ProfileEdit />,
+                },
+              ],
+            },
+            {
+              path: PATH.CAT,
+              element: <Page />,
+              children: [
+                {
+                  path: 'create',
+                  element: <CatCreate />,
                 },
               ],
             },

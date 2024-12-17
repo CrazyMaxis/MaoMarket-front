@@ -20,6 +20,7 @@ import { ReactComponent as settings } from 'assets/svg/settings.svg';
 import { ReactComponent as successIcon } from 'assets/svg/successIcon.svg';
 import { ReactComponent as tableArrows } from 'assets/svg/tableArrows.svg';
 import { ReactComponent as textEDSLogo } from 'assets/svg/textForLogoEDS.svg';
+import { ReactComponent as uploadIcon } from 'assets/svg/uploadIcon.svg';
 import { ReactComponent as userInCircle } from 'assets/svg/userInCircle.svg';
 import { ReactComponent as warningIcon } from 'assets/svg/warningIcon.svg';
 
@@ -49,6 +50,7 @@ const icons = {
   tableArrows,
   plusIcon,
   saveIcon,
+  uploadIcon,
 };
 
 export type FeatherIconTypes = keyof typeof icons;

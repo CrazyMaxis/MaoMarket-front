@@ -10,4 +10,10 @@ export default class CatService {
   static async getUserCats(userId: string) {
     return $api.get(`Cat/user/${userId}`);
   }
+
+  static async createCat(data: FormData) {
+    return $api.post('Cat', data, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    });
+  }
 }

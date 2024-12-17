@@ -17,7 +17,7 @@ export const CatsInfo = () => {
   const [cats, setCats] = useState<IUserCat[]>([]);
 
   const onClickAddCat = () => {
-    navigate(`${PATH.CAT}/add`);
+    navigate(`${PATH.CAT}/create`);
   };
 
   const fetchCats = async () => {
@@ -36,7 +36,7 @@ export const CatsInfo = () => {
   }
 
   return (
-    <Flex align="center" gap={24}>
+    <Flex align="center" gap={24} wrap>
       {cats.map((cat) => (
         <CatItemInfo data={cat} key={cat.id} />
       ))}

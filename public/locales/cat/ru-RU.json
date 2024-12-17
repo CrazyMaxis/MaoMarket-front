@@ -1,0 +1,31 @@
+{
+  "cancel": "Отмена",
+  "save": "Сохранить",
+  "labelsCollapse": {
+    "generalData": "Основная информация",
+    "parentsInfo": "Информация о родителях",
+    "catPhotos": "Фотографии"
+  },
+  "form": {
+    "title": "Создание карточки кота",
+    "labels": {
+      "name": "Имя",
+      "gender": "Пол",
+      "birthDate": "Дата рождения",
+      "breed": "Порода",
+      "description": "Описание",
+      "mother": "Мать",
+      "father": "Отец",
+      "photos": "Фотографии"
+    },
+    "placeholders": {
+      "name": "Введите имя",
+      "gender": "Выберите пол",
+      "breed": "Выберите породу",
+      "description": "Введите описание",
+      "mother": "Выберите мать",
+      "father": "Выберите отца",
+      "photos": "Выберите фотографии"
+    }
+  }
+}

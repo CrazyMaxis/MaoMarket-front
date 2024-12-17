@@ -23,6 +23,7 @@ export const useEditProfile = () => {
     if (userId) {
       await UserService.updateProfile(userId, name);
       navigate(PATH.PROFILE);
+      window.location.reload();
     }
   };
 

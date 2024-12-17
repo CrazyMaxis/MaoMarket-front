@@ -3,8 +3,8 @@ import * as yup from 'yup';
 
 export const RegistrationValidationScheme = yup.object({
   name: yup.string().required(REQUIRED),
-  email: yup.string().required(REQUIRED),
-  password: yup.string().required(REQUIRED),
+  email: yup.string().email().required(REQUIRED),
+  password: yup.string().min(6).required(REQUIRED),
 });
 
 export type RegistrationScheme = yup.InferType<

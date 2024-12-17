@@ -1,5 +1,4 @@
 import axios, { AxiosResponse } from 'axios';
-import Cookies from 'js-cookie';
 import { logout } from 'reduxApp/authentification';
 import { store } from 'reduxApp/store';
 import { $apiAuth } from './services/AuthService';
@@ -40,8 +39,6 @@ $api.interceptors.response.use(
 
         return $api.request(originalRequest);
       } catch (e) {
-        Cookies.remove('AccessToken');
-        Cookies.remove('RefreshToken');
         store.dispatch(logout());
       }
     } else if (

@@ -39,7 +39,7 @@ export const useVerify = () => {
     } else {
       notification.error({
         message: t('errorTitle'),
-        description: resultAction.error.message,
+        description: t('errorMessage'),
       });
     }
   };

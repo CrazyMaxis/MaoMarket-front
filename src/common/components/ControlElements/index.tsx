@@ -6,3 +6,4 @@ export * from './InputNumberControl';
 export * from './SelectControl';
 export * from './DatePickerControl';
 export * from './CheckboxControl';
+export * from './FileControl';

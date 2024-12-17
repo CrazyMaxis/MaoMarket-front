@@ -1,0 +1,19 @@
+@use 'styles/scss/palette.module.scss' as colors;
+
+.closeIcon {
+  font-size: 10px;
+
+  svg {
+    path {
+      transition: fill 0.5s ease;
+    }
+  }
+
+  &:hover {
+    svg {
+      path {
+        fill: colors.$blue-4;
+      }
+    }
+  }
+}

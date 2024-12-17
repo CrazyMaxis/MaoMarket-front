@@ -1,0 +1,46 @@
+@use 'styles/scss/palette.module.scss' as colors;
+
+.inner {
+  display: flex;
+  position: relative;
+
+  button {
+    background-color: colors.$blue-4;
+    border: 2px solid colors.$blue-2;
+    color: colors.$blue-2;
+    width: 100%;
+    height: 100px;
+    flex-direction: column;
+    font-weight: 600;
+
+    svg {
+      font-size: 30px;
+      margin-right: 10px;
+    }
+
+    &:hover:not(:disabled) {
+      background-color: transparent !important;
+      color: colors.$blue-4 !important;
+      border-color: colors.$blue-4;
+    }
+
+    &.drag {
+      background-color: colors.$blue-1 !important;
+      color: colors.$blue-1 !important;
+    }
+  }
+}
+
+.input {
+  position: relative;
+  width: 100%;
+
+  input[type='file'] {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    display: block;
+    width: 0;
+    height: 0;
+  }
+}
