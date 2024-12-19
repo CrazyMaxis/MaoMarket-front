@@ -25,6 +25,8 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: transparent;
+  overflow: -moz-scrollbars-none;
+  scrollbar-width: none;
 }
 
 * {
@@ -34,6 +36,10 @@ html {
 
 body {
   margin: 0;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 section {

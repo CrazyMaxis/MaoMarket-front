@@ -22,6 +22,8 @@ const Profile = lazy(() => import('pages/profile/View'));
 const ProfileEdit = lazy(() => import('pages/profile/Edit'));
 
 const CatCreate = lazy(() => import('pages/cat/Create'));
+const CatEdit = lazy(() => import('pages/cat/Edit'));
+const CatView = lazy(() => import('pages/cat/View'));
 
 const ProtectedRouteByRole = ({
   roles,
@@ -154,6 +156,14 @@ export const Router = () => (
                 {
                   path: 'create',
                   element: <CatCreate />,
+                },
+                {
+                  path: ':id',
+                  element: <CatView />,
+                },
+                {
+                  path: ':id/edit',
+                  element: <CatEdit />,
                 },
               ],
             },

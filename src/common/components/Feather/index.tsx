@@ -8,6 +8,7 @@ import { ReactComponent as burger } from 'assets/svg/burger.svg';
 import { ReactComponent as busketIcon } from 'assets/svg/busketIcon.svg';
 import { ReactComponent as calendarIcon } from 'assets/svg/calendarIcon.svg';
 import { ReactComponent as closeIcon } from 'assets/svg/closeIcon.svg';
+import { ReactComponent as deleteIcon } from 'assets/svg/delete.svg';
 import { ReactComponent as errorIcon } from 'assets/svg/errorIcon.svg';
 import { ReactComponent as infoIcon } from 'assets/svg/infoIcon.svg';
 import { ReactComponent as logo } from 'assets/svg/logo.svg';
@@ -51,6 +52,7 @@ const icons = {
   plusIcon,
   saveIcon,
   uploadIcon,
+  deleteIcon,
 };
 
 export type FeatherIconTypes = keyof typeof icons;

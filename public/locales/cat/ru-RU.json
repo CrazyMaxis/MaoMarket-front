@@ -1,13 +1,35 @@
 {
+  "title": "Информация о коте",
   "cancel": "Отмена",
+  "edit": "Редактировать",
   "save": "Сохранить",
+  "delete": "Удалить",
   "labelsCollapse": {
     "generalData": "Основная информация",
     "parentsInfo": "Информация о родителях",
-    "catPhotos": "Фотографии"
+    "catPhotos": "Фотографии",
+    "pedigreeInfo": "Родословная"
+  },
+  "view": {
+    "generalData": {
+      "name": "Имя",
+      "gender": "Пол",
+      "breed": "Порода",
+      "birthDate": "Дата рождения",
+      "description": "Описание"
+    },
+    "pedigreeInfo": {
+      "parents": "Родители",
+      "mother": "Мать",
+      "father": "Отец",
+      "partner": "Партнер",
+      "children": "Потомки",
+      "noInfo": "Нет информации"
+    }
   },
   "form": {
-    "title": "Создание карточки кота",
+    "title": "Создание кота",
+    "titleEdit": "Редактирование кота",
     "labels": {
       "name": "Имя",
       "gender": "Пол",
