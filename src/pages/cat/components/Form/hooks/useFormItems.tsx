@@ -9,23 +9,25 @@ const useFormItems = () => {
     keyPrefix: 'labelsCollapse',
   });
 
+  const isEdit = window.location.pathname.includes('/edit');
+
   const keys: string[] = ['generalData', 'parentsInfo', 'catPhotos'];
 
   const formItems: CollapseProps['items'] = [
     {
       key: keys[0],
       label: t(keys[0]),
-      children: <GeneralData />,
+      children: <GeneralData isEdit={isEdit} />,
     },
     {
       key: keys[1],
       label: t(keys[1]),
-      children: <ParentsInfo />,
+      children: <ParentsInfo isEdit={isEdit} />,
     },
     {
       key: keys[2],
       label: t(keys[2]),
-      children: <CatPhotos />,
+      children: <CatPhotos isEdit={isEdit} />,
     },
   ];
 

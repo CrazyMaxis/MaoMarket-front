@@ -2,12 +2,12 @@ import { useTranslation } from 'react-i18next';
 import { Flex } from 'antd';
 import { Button, CommunicationHeader, Feather } from 'components';
 import { Form } from '../components/Form';
-import { useEdiCat } from './hooks/useEditCat';
+import { useEditCat } from './hooks/useEditCat';
 import styles from './index.module.scss';
 
 const Edit = () => {
   const { t } = useTranslation('cat');
-  const { methods, onCancel, onSave } = useEdiCat();
+  const { methods, onCancel, onSave } = useEditCat();
 
   return (
     <CommunicationHeader

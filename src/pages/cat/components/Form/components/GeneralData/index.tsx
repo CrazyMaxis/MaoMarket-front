@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Row } from 'antd';
 import BreedService from 'api/services/BreedService';
+import dayjs from 'dayjs';
 import { IBreed } from 'models/IBreed';
 import {
   DatePickerControl,
@@ -10,7 +11,11 @@ import {
   TextAreaControl,
 } from 'components';
 
-export const GeneralData = () => {
+interface IGeneralDataProps {
+  isEdit: boolean;
+}
+
+export const GeneralData = ({ isEdit }: IGeneralDataProps) => {
   const { t } = useTranslation('cat', { keyPrefix: 'form' });
   const [breeds, setBreeds] = useState<IBreed[]>([]);
 
@@ -35,6 +40,7 @@ export const GeneralData = () => {
           name="name"
           label={t('labels.name')}
           inputProps={{ placeholder: t('placeholders.name') }}
+          disabled={isEdit}
           required
         />
       </Col>
@@ -49,6 +55,7 @@ export const GeneralData = () => {
               { label: 'Женский', value: 'Female' },
             ],
           }}
+          disabled={isEdit}
           required
         />
       </Col>
@@ -56,6 +63,8 @@ export const GeneralData = () => {
         <DatePickerControl
           name="birthDate"
           label={t('labels.birthDate')}
+          datePickerProps={{ maxDate: dayjs() }}
+          disabled={isEdit}
           required
         />
       </Col>
@@ -67,6 +76,7 @@ export const GeneralData = () => {
             placeholder: t('placeholders.breed'),
             options: breedOptions,
           }}
+          disabled={isEdit}
           required
         />
       </Col>

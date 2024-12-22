@@ -7,7 +7,11 @@ import { getUser } from 'reduxApp/authentification';
 import { SelectControl } from 'components';
 import { useAppSelector } from 'hooks/customReduxHooks';
 
-export const ParentsInfo = () => {
+interface IParentsInfoProps {
+  isEdit: boolean;
+}
+
+export const ParentsInfo = ({ isEdit }: IParentsInfoProps) => {
   const { t } = useTranslation('cat', { keyPrefix: 'form' });
   const [cats, setCats] = useState<IUserCat[]>([]);
   const user = useAppSelector((state) => getUser(state));
@@ -41,6 +45,7 @@ export const ParentsInfo = () => {
             options: motherOptions,
             loading: !userId,
           }}
+          disabled={isEdit}
         />
       </Col>
       <Col span={6}>
@@ -52,6 +57,7 @@ export const ParentsInfo = () => {
             options: fatherOptions,
             loading: !userId,
           }}
+          disabled={isEdit}
         />
       </Col>
     </Row>

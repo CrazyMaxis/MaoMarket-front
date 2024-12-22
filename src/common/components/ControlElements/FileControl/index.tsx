@@ -20,12 +20,17 @@ export const FileControl = ({
   return (
     <FormContextController name={name} {...props}>
       {(value, setValue) => (
-        <Flex vertical>
+        <Flex wrap gap={16}>
           <Uploader
             {...fileUploaderProps}
-            onUpload={(files) => setValue(Object.values(files))}
+            onUpload={(files) => {
+              const existingFiles = Array.isArray(value) ? value : [];
+
+              const newFiles = [...existingFiles, ...Object.values(files)];
+              setValue(newFiles);
+            }}
           />
-          {value && !!value.length && <FilesViewItem name={name} />}
+          {value && value.length > 0 && <FilesViewItem name={name} />}
         </Flex>
       )}
     </FormContextController>

@@ -1,7 +1,6 @@
 import { useFieldArray, useFormContext } from 'react-hook-form';
-import { Flex } from 'antd';
+import { Flex, Image } from 'antd';
 import { Feather } from 'components';
-import styles from './index.module.scss';
 
 interface IFileItemProps {
   name: string;
@@ -15,19 +14,17 @@ const FilesViewItem = ({ name }: IFileItemProps) => {
   });
   const files = watch(name);
 
+  console.log(files);
+
   return (
-    <Flex>
-      {files.map((file: File, idx: number) => (
-        <Flex gap={6} key={idx}>
-          <span>{file.name}</span>
-          <Feather
-            type="closeIcon"
-            onClick={() => remove(idx)}
-            className={styles.closeIcon}
-          />
+    <Image.PreviewGroup>
+      {files.map((img: File, idx: number) => (
+        <Flex gap={4} align="start" key={idx}>
+          <Image src={URL.createObjectURL(img)} width={250} />
+          <Feather type="closeIcon" onClick={() => remove(idx)} />
         </Flex>
       ))}
-    </Flex>
+    </Image.PreviewGroup>
   );
 };
 

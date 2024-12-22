@@ -26,7 +26,7 @@ export default class CatService {
   }
 
   static async editCat(catId: string, data: FormData) {
-    return $api.put(`Cat/${catId}/edit`, data, {
+    return $api.put(`Cat/${catId}`, data, {
       headers: { 'Content-Type': 'multipart/form-data' },
     });
   }

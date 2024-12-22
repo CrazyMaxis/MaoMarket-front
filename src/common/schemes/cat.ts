@@ -10,6 +10,8 @@ export const CatValidationScheme = yup.object({
   fatherId: yup.string(),
   motherId: yup.string(),
   photos: yup.mixed(),
+  photosToDelete: yup.array().of(yup.string()),
+  newPhotos: yup.array().of(yup.mixed()),
 });
 
 export type CatScheme = yup.InferType<typeof CatValidationScheme>;
