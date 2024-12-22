@@ -1,0 +1,18 @@
+@use 'styles/scss/palette.module.scss' as colors;
+
+.container {
+  margin-top: 16px;
+  width: 70%;
+  background-color: colors.$gray-21;
+  padding: 32px 40px;
+  border-radius: 15px;
+
+  .title {
+    font-size: 32px;
+    font-weight: bold;
+  }
+
+  .body {
+    font-size: 18px;
+  }
+}

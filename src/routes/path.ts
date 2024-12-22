@@ -3,6 +3,7 @@ export enum PATH {
   AUTHARIZATION = '/auth',
   PROFILE = '/profile',
   CAT = '/cat',
+  NEWS = '/news',
 }
 
 export enum PATH_AUTHORIZATION {

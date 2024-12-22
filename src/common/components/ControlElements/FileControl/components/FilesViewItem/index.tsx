@@ -14,8 +14,6 @@ const FilesViewItem = ({ name }: IFileItemProps) => {
   });
   const files = watch(name);
 
-  console.log(files);
-
   return (
     <Image.PreviewGroup>
       {files.map((img: File, idx: number) => (

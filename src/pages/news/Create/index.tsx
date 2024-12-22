@@ -2,12 +2,12 @@ import { useTranslation } from 'react-i18next';
 import { Flex } from 'antd';
 import { Button, CommunicationHeader, Feather } from 'components';
 import { Form } from '../components/Form';
-import { useCreateCat } from './hooks/useCreateCat';
+import { useCreatePost } from './hooks/useCreatePost';
 import styles from './index.module.scss';
 
 const Create = () => {
-  const { t } = useTranslation('cat');
-  const { methods, onCancel, onSave } = useCreateCat();
+  const { t } = useTranslation('news');
+  const { methods, onCancel, onSave } = useCreatePost();
 
   return (
     <CommunicationHeader

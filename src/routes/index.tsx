@@ -25,6 +25,11 @@ const CatCreate = lazy(() => import('pages/cat/Create'));
 const CatEdit = lazy(() => import('pages/cat/Edit'));
 const CatView = lazy(() => import('pages/cat/View'));
 
+const NewsList = lazy(() => import('pages/news/List'));
+const NewsCreate = lazy(() => import('pages/news/Create'));
+const PostEdit = lazy(() => import('pages/news/Edit'));
+const PostView = lazy(() => import('pages/news/View'));
+
 const ProtectedRouteByRole = ({
   roles,
   children,
@@ -164,6 +169,28 @@ export const Router = () => (
                 {
                   path: ':id/edit',
                   element: <CatEdit />,
+                },
+              ],
+            },
+            {
+              path: PATH.NEWS,
+              element: <Page />,
+              children: [
+                {
+                  element: <NewsList />,
+                  index: true,
+                },
+                {
+                  path: 'create',
+                  element: <NewsCreate />,
+                },
+                {
+                  path: ':id',
+                  element: <PostView />,
+                },
+                {
+                  path: ':id/edit',
+                  element: <PostEdit />,
                 },
               ],
             },

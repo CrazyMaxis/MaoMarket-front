@@ -2,16 +2,16 @@ import { useTranslation } from 'react-i18next';
 import { Flex } from 'antd';
 import { Button, CommunicationHeader, Feather } from 'components';
 import { Form } from '../components/Form';
-import { useCreateCat } from './hooks/useCreateCat';
+import { useEditPost } from './hooks/useEditPost';
 import styles from './index.module.scss';
 
-const Create = () => {
+const Edit = () => {
   const { t } = useTranslation('cat');
-  const { methods, onCancel, onSave } = useCreateCat();
+  const { methods, onCancel, onSave } = useEditPost();
 
   return (
     <CommunicationHeader
-      title={t('form.title')}
+      title={t('form.titleEdit')}
       buttons={
         <Flex gap={8}>
           <Button
@@ -31,4 +31,4 @@ const Create = () => {
   );
 };
 
-export default Create;
+export default Edit;

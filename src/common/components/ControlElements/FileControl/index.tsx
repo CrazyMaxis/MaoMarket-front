@@ -10,11 +10,13 @@ interface IFileControlProps
   extends Omit<ContextCotrollerProps<File[]>, 'name'> {
   name?: string;
   fileUploaderProps?: IFileUploaderProps;
+  isSingle?: boolean;
 }
 
 export const FileControl = ({
   name = 'file',
   fileUploaderProps,
+  isSingle = false,
   ...props
 }: IFileControlProps) => {
   return (
@@ -26,7 +28,10 @@ export const FileControl = ({
             onUpload={(files) => {
               const existingFiles = Array.isArray(value) ? value : [];
 
-              const newFiles = [...existingFiles, ...Object.values(files)];
+              const newFiles = isSingle
+                ? [files[0]]
+                : [...existingFiles, ...Object.values(files)];
+
               setValue(newFiles);
             }}
           />
