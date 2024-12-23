@@ -6,7 +6,7 @@ import { useEditPost } from './hooks/useEditPost';
 import styles from './index.module.scss';
 
 const Edit = () => {
-  const { t } = useTranslation('cat');
+  const { t } = useTranslation('news');
   const { methods, onCancel, onSave } = useEditPost();
 
   return (

@@ -8,3 +8,8 @@ export interface IUserInstance {
   isBlocked: boolean;
   verificationRequested: boolean;
 }
+
+export interface IShortUser {
+  id: string;
+  name: string;
+}

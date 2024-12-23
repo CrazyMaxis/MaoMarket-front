@@ -9,8 +9,10 @@ import { ReactComponent as busketIcon } from 'assets/svg/busketIcon.svg';
 import { ReactComponent as calendarIcon } from 'assets/svg/calendarIcon.svg';
 import { ReactComponent as closeIcon } from 'assets/svg/closeIcon.svg';
 import { ReactComponent as deleteIcon } from 'assets/svg/delete.svg';
+import { ReactComponent as dislike } from 'assets/svg/dislike.svg';
 import { ReactComponent as errorIcon } from 'assets/svg/errorIcon.svg';
 import { ReactComponent as infoIcon } from 'assets/svg/infoIcon.svg';
+import { ReactComponent as like } from 'assets/svg/like.svg';
 import { ReactComponent as logo } from 'assets/svg/logo.svg';
 import { ReactComponent as pencil } from 'assets/svg/pencil.svg';
 import { ReactComponent as plusIcon } from 'assets/svg/plusIcon.svg';
@@ -53,6 +55,8 @@ const icons = {
   saveIcon,
   uploadIcon,
   deleteIcon,
+  like,
+  dislike,
 };
 
 export type FeatherIconTypes = keyof typeof icons;

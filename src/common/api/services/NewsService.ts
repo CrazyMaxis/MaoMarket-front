@@ -30,4 +30,8 @@ export default class NewsService {
   static async deletePost(postId: string) {
     return $api.delete(`Post/${postId}`);
   }
+
+  static async reactPost(postId: string, action: 'Like' | 'Dislike') {
+    return $api.post(`Post/${postId}/react`, { action });
+  }
 }

@@ -6,7 +6,7 @@ const useFilterForm = () => {
   const methods = useForm();
   const [, setSearchParams] = useSearchParams();
 
-  const { watch, reset } = methods;
+  const { watch, reset, setValue } = methods;
 
   useEffect(() => {
     const subscriptionForm = watch((values) =>
@@ -30,6 +30,7 @@ const useFilterForm = () => {
 
   const onReset = () => {
     reset();
+    setValue('sortDirection', 'desc');
     setSearchParams({}, { preventScrollReset: true, replace: true });
   };
 

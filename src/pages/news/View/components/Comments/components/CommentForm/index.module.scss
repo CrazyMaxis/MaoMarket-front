@@ -1,0 +1,13 @@
+@use 'styles/scss/palette.module.scss' as colors;
+
+.container {
+  padding: 16px 24px;
+  background-color: colors.$blue-7;
+  border-radius: 15px;
+  border: 1px solid colors.$gray-17;
+
+  .textArea {
+    width: 100%;
+    margin-bottom: 0px;
+  }
+}

@@ -9,6 +9,7 @@ import { Button, CommunicationHeader, Feather } from 'components';
 import { useAppSelector } from 'hooks/customReduxHooks';
 import useDataLoader from 'hooks/useDataLoader';
 import { PATH } from 'routes/path';
+import { Comments } from './components/Comments';
 import { PostInfo } from './components/PostInfo';
 import styles from './index.module.scss';
 
@@ -71,7 +72,10 @@ const View = () => {
         )
       }
     >
-      <Flex justify="center">{res?.data && <PostInfo post={res?.data} />}</Flex>
+      <Flex gap={48} vertical align="center">
+        {res?.data && <PostInfo post={res?.data} />}
+        <Comments />
+      </Flex>
     </CommunicationHeader>
   );
 };
