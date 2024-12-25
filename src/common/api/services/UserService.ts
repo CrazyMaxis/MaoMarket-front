@@ -20,6 +20,10 @@ export default class UserService {
     return $api.get('User', { params });
   }
 
+  static async getUsersWithRequests(params: any) {
+    return $api.get('User/verification-requests', { params });
+  }
+
   static async changeRole(userId: string, role: string) {
     return $api.post(`User/${userId}/change-role`, { newRole: role });
   }
@@ -34,5 +38,13 @@ export default class UserService {
 
   static async deleteUser(userId: string) {
     return $api.delete(`User/${userId}`);
+  }
+
+  static async approveVerifyRequest(userId: string) {
+    return $api.post(`User/${userId}/verify`, { isVerified: true });
+  }
+
+  static async rejectVerifyRequest(userId: string) {
+    return $api.post(`User/${userId}/verify`, { isVerified: false });
   }
 }

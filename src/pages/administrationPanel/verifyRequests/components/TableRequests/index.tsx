@@ -1,22 +1,17 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
-import { Flex } from 'antd';
-import UserService from 'api/services/UserService';
 import { IUserInstance } from 'models/IUserInstance';
-import { toggleRefresh } from 'reduxApp/refsreshSlice';
-import { Button, Drawer, Feather, Table } from 'components';
+import { Drawer, Table } from 'components';
 import { DrawerContent } from './components/DrawerContent';
-import { useTableUsers } from './hooks/useTableUsers';
+import { useTableRequests } from './hooks/useTableRequests';
 
-export const TableUsers = () => {
-  const { columns, data } = useTableUsers();
+export const TableRequests = () => {
+  const { columns, data } = useTableRequests();
   const [selectedUser, setSelectedUser] = useState<IUserInstance | null>(null);
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useTranslation('administrationPanel', {
     keyPrefix: 'assignRoles.drawer',
   });
-  const dispatch = useDispatch();
 
   const onRowClick = (record: IUserInstance) => {
     setSelectedUser(record);
@@ -25,15 +20,6 @@ export const TableUsers = () => {
 
   const onCloseDrawer = () => {
     setIsOpen(false);
-  };
-
-  const onDelete = () => {
-    if (selectedUser) {
-      UserService.deleteUser(selectedUser?.id).then(() =>
-        dispatch(toggleRefresh()),
-      );
-      onCloseDrawer();
-    }
   };
 
   const dataSource = data?.map((item: IUserInstance) => ({
@@ -54,14 +40,7 @@ export const TableUsers = () => {
       <Drawer
         open={isOpen}
         onClose={onCloseDrawer}
-        title={
-          <Flex gap={24} align="center">
-            <div>{t('title')}</div>
-            <Button icon={<Feather type="busketIcon" />} onClick={onDelete}>
-              {t('delete')}
-            </Button>
-          </Flex>
-        }
+        title={t('title')}
         destroyOnClose
       >
         <DrawerContent user={selectedUser as IUserInstance} />

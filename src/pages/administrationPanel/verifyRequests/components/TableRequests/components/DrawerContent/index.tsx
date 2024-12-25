@@ -1,17 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { Flex, Spin } from 'antd';
 import CatService from 'api/services/CatService';
 import UserService from 'api/services/UserService';
-import { ROLES_OPTIONS } from 'constants/common-options';
 import { IUserCat } from 'models/ICat';
 import { IUserInstance } from 'models/IUserInstance';
 import { CatItemInfo } from 'pages/profile/View/components/ProfileInfo/components/CatsInfo/components/CatItemInfo';
 import { toggleRefresh } from 'reduxApp/refsreshSlice';
-import { Button, Select } from 'components';
+import { Button } from 'components';
 import useDataLoader from 'hooks/useDataLoader';
-import styles from './index.module.scss';
 
 interface IDrawerContentProps {
   user: IUserInstance;
@@ -22,9 +20,20 @@ export const DrawerContent = ({ user }: IDrawerContentProps) => {
     keyPrefix: 'assignRoles.drawer',
   });
   const dispatch = useDispatch();
-  const [isBlocked, setIsBlocked] = useState(user.isBlocked);
 
   const { loadData, isLoading, res } = useDataLoader(CatService.getUserCats);
+
+  const onApprove = () => {
+    UserService.approveVerifyRequest(user.id).then(() =>
+      dispatch(toggleRefresh()),
+    );
+  };
+
+  const onReject = () => {
+    UserService.rejectVerifyRequest(user.id).then(() =>
+      dispatch(toggleRefresh()),
+    );
+  };
 
   useEffect(() => {
     loadData(user.id);
@@ -34,26 +43,13 @@ export const DrawerContent = ({ user }: IDrawerContentProps) => {
     return <Spin />;
   }
 
-  const onChange = (role: string) => {
-    UserService.changeRole(user.id, role).then(() => dispatch(toggleRefresh()));
-  };
-
-  const onBlock = () => {
-    UserService.blockUser(user.id).then(() => {
-      setIsBlocked(true);
-      dispatch(toggleRefresh());
-    });
-  };
-
-  const onUnblock = () => {
-    UserService.unblockUser(user.id).then(() => {
-      setIsBlocked(false);
-      dispatch(toggleRefresh());
-    });
-  };
-
   return (
     <Flex gap={24} vertical>
+      <Flex gap={16}>
+        <Button onClick={onApprove}>{t('approve')}</Button>
+        <Button onClick={onReject}>{t('reject')}</Button>
+      </Flex>
+
       <Flex gap={8}>
         <b>{t('fullname')}</b>
         <div>{user.name}</div>
@@ -77,23 +73,8 @@ export const DrawerContent = ({ user }: IDrawerContentProps) => {
       </Flex>
 
       <Flex gap={8} align="center">
-        <b>{t('role')}</b>
-        <Select
-          defaultValue={user.role}
-          options={ROLES_OPTIONS()}
-          className={styles.select}
-          onChange={(value) => onChange(value)}
-        />
-      </Flex>
-
-      <Flex gap={8} align="center">
         <b>{t('isBlocked')}</b>
-        <div>{t(`${isBlocked}`)}</div>
-        {isBlocked ? (
-          <Button onClick={onUnblock}>{t('unblock')}</Button>
-        ) : (
-          <Button onClick={onBlock}>{t('block')}</Button>
-        )}
+        <div>{t(`${user.isBlocked}`)}</div>
       </Flex>
 
       <Flex gap={8}>

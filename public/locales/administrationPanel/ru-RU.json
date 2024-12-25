@@ -31,7 +31,9 @@
       "block": "Заблокировать",
       "phoneNumber": "Номер телефона:",
       "telegramUsername": "Имя пользователя Telegram:",
-      "dontHave": "Не указано"
+      "dontHave": "Не указано",
+      "approve": "Одобрить",
+      "reject": "Отказать"
     },
     "true": "Да",
     "false": "Нет"

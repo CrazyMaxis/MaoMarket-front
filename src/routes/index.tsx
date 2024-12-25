@@ -32,6 +32,9 @@ const PostView = lazy(() => import('pages/news/View'));
 
 const AdministrationPanel = lazy(() => import('pages/administrationPanel'));
 const AssignRoles = lazy(() => import('pages/administrationPanel/assignRoles'));
+const VerifyRequests = lazy(
+  () => import('pages/administrationPanel/verifyRequests'),
+);
 
 const ProtectedRouteByRole = ({
   roles,
@@ -205,6 +208,10 @@ export const Router = () => (
                   path: PATH_ADMINISTRATION_PANEL.ASSIGN_ROLES,
                   element: <AssignRoles />,
                   index: true,
+                },
+                {
+                  path: PATH_ADMINISTRATION_PANEL.VERIFYREQUESTS,
+                  element: <VerifyRequests />,
                 },
               ],
             },

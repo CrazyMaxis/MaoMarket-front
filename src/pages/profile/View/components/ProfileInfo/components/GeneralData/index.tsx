@@ -37,7 +37,7 @@ export const GeneralData = () => {
         },
         {
           title: t('telegramUsername'),
-          value: (
+          value: user?.telegramUsername && (
             <Link
               to={`https://t.me/${user?.telegramUsername}`}
               target="_blank"
