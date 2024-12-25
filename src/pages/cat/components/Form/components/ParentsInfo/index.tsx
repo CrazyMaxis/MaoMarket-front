@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useFormContext } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { Col, Row } from 'antd';
 import CatService from 'api/services/CatService';
@@ -16,10 +17,29 @@ export const ParentsInfo = ({ isEdit }: IParentsInfoProps) => {
   const [cats, setCats] = useState<IShortCat[]>([]);
   const user = useAppSelector((state) => getUser(state));
   const userId = user ? user.id : '';
+  const { watch } = useFormContext();
+
+  const isCattery = watch('isCattery');
 
   const fetchUserCats = async () => {
-    const response = await CatService.getUserCats(userId);
-    setCats(response.data);
+    const response1 = await CatService.getUserCats(userId);
+
+    const uniqueCatsMap: { [key: string]: IShortCat } = {};
+
+    response1.data.forEach((cat: IShortCat) => {
+      uniqueCatsMap[cat.id] = cat;
+    });
+
+    if (isCattery) {
+      const response2 = await CatService.getCatteryCats({ pageSize: 99999 });
+      response2.data.items.forEach((cat: IShortCat) => {
+        uniqueCatsMap[cat.id] = cat;
+      });
+    }
+
+    const combinedCats = Object.values(uniqueCatsMap);
+
+    setCats(combinedCats);
   };
 
   useEffect(() => {

@@ -5,6 +5,7 @@ export enum PATH {
   CAT = '/cat',
   NEWS = '/news',
   ADMINISTRATION_PANEL = '/administrationPanel',
+  ADVERTISEMENTS = '/advertisements',
 }
 
 export enum PATH_AUTHORIZATION {

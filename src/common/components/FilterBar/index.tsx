@@ -13,7 +13,7 @@ export const FilterBar = ({ onReset, children }: IFilterBar) => {
   const { t } = useTranslation('common');
 
   return (
-    <Flex gap={32} justify="space-between" className={styles.root}>
+    <Flex gap={32} className={styles.root}>
       <Row gutter={[16, 10]} className={styles.formWrapper}>
         {children}
       </Row>

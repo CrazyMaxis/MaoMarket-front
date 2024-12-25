@@ -1,3 +1,5 @@
+import { IBreed } from './IBreed';
+
 export interface ICat {
   id: string;
   name: string;
@@ -26,4 +28,5 @@ export interface IShortCat {
   name: string;
   gender: string;
   photoUrl: string;
+  breed: IBreed;
 }

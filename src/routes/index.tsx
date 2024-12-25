@@ -37,6 +37,9 @@ const VerifyRequests = lazy(
 );
 const CatteryCats = lazy(() => import('pages/administrationPanel/catteryCats'));
 
+const AdvertisementsList = lazy(() => import('pages/advertisement/List'));
+const AdvertisementsCreate = lazy(() => import('pages/advertisement/Create'));
+
 const ProtectedRouteByRole = ({
   roles,
   children,
@@ -217,6 +220,20 @@ export const Router = () => (
                 {
                   path: PATH_ADMINISTRATION_PANEL.CATTERY_CATS,
                   element: <CatteryCats />,
+                },
+              ],
+            },
+            {
+              path: PATH.ADVERTISEMENTS,
+              element: <Page />,
+              children: [
+                {
+                  element: <AdvertisementsList />,
+                  index: true,
+                },
+                {
+                  path: 'create',
+                  element: <AdvertisementsCreate />,
                 },
               ],
             },

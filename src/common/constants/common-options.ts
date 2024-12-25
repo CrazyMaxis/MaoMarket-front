@@ -1,5 +1,6 @@
 import { DefaultOptionType } from 'antd/es/select';
 import { Roles } from 'enums/Roles';
+import { SortOrder } from 'enums/SortOrder';
 import i18next from 'i18next';
 
 const generateOptions = <T extends string>(
@@ -12,6 +13,8 @@ const generateOptions = <T extends string>(
   }));
 
 export const ROLES_OPTIONS = () => generateOptions(Roles, 'roles');
+
+export const SORT_ORDER_OPTIONS = () => generateOptions(SortOrder, 'sortOrder');
 
 export const IS_BLOCKED_OPTIONS = (): DefaultOptionType[] => [
   { label: i18next.t('common:isBlocked.BLOCKED'), value: 1 },
