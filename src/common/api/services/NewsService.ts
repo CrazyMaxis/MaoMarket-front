@@ -7,7 +7,7 @@ export const $api = axios.create({
 });
 
 export default class NewsService {
-  static async getNews(params: any) {
+  static async getNews(params: unknown) {
     return $api.get('Post', { params });
   }
 

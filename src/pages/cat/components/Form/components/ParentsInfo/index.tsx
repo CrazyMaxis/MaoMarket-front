@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Row } from 'antd';
 import CatService from 'api/services/CatService';
-import { IUserCat } from 'models/ICat';
+import { IShortCat } from 'models/ICat';
 import { getUser } from 'reduxApp/authentification';
 import { SelectControl } from 'components';
 import { useAppSelector } from 'hooks/customReduxHooks';
@@ -13,7 +13,7 @@ interface IParentsInfoProps {
 
 export const ParentsInfo = ({ isEdit }: IParentsInfoProps) => {
   const { t } = useTranslation('cat', { keyPrefix: 'form' });
-  const [cats, setCats] = useState<IUserCat[]>([]);
+  const [cats, setCats] = useState<IShortCat[]>([]);
   const user = useAppSelector((state) => getUser(state));
   const userId = user ? user.id : '';
 

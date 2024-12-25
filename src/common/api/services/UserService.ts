@@ -16,11 +16,11 @@ export default class UserService {
     return $api.put(`User/${userId}/update-profile`, data);
   }
 
-  static async getUsers(params: any) {
+  static async getUsers(params: unknown) {
     return $api.get('User', { params });
   }
 
-  static async getUsersWithRequests(params: any) {
+  static async getUsersWithRequests(params: unknown) {
     return $api.get('User/verification-requests', { params });
   }
 

@@ -2,7 +2,8 @@
   "title": "Панель администрирования",
   "tabs": {
     "assignRoles": "Назначение ролей",
-    "verifyRequests": "Проверка запросов на верификацию"
+    "verifyRequests": "Проверка запросов на верификацию",
+    "catteryCats": "Коты питомника"
   },
   "assignRoles": {
     "placeholders": {
@@ -37,5 +38,12 @@
     },
     "true": "Да",
     "false": "Нет"
+  },
+  "catteryCats": {
+    "placeholders": {
+      "searchName": "Введите имя",
+      "gender": "Выберите пол",
+      "breed": "Выберите породу"
+    }
   }
 }

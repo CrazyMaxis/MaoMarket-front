@@ -11,6 +11,10 @@ export default class CatService {
     return $api.get(`Cat/user/${userId}`);
   }
 
+  static async getCatteryCats(params: unknown) {
+    return $api.get('Cat/cattery', { params });
+  }
+
   static async getCatInfo(catId: string) {
     return $api.get(`Cat/${catId}`);
   }

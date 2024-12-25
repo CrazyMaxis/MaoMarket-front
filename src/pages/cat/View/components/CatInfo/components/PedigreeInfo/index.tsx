@@ -23,7 +23,7 @@ export const PedigreeInfo = ({ cat }: IPedigreeInfoProps) => {
 
   useEffect(() => {
     fetchPedigree();
-  }, []);
+  }, [cat]);
 
   return (
     <>

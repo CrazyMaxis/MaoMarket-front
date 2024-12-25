@@ -22,7 +22,7 @@ export const GeneralData = ({ cat }: IGeneralDataProps) => {
         },
         {
           title: t('gender'),
-          value: tCommon(cat?.gender),
+          value: tCommon(`gender.${cat?.gender}`),
         },
         {
           title: t('breed'),

@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 import { Flex } from 'antd';
 import CommentService from 'api/services/CommentService';
 import { IComment } from 'models/IComment';
+import { getStateAuth } from 'reduxApp/authentification';
+import { useAppSelector } from 'hooks/customReduxHooks';
 import useDataLoader from 'hooks/useDataLoader';
 import { CommentForm } from './components/CommentForm';
 import { CommentInfo } from './components/CommentInfo';
@@ -17,6 +19,7 @@ export const Comments = () => {
   const { loadData, isLoading, res } = useDataLoader(
     CommentService.getComments,
   );
+  const isAuth = useAppSelector((state) => getStateAuth(state));
 
   useEffect(() => {
     loadData(id);
@@ -49,7 +52,7 @@ export const Comments = () => {
       ) : (
         <Flex>{t('noComment')}</Flex>
       )}
-      <CommentForm handleCommentCreate={handleCommentCreate} />
+      {isAuth && <CommentForm handleCommentCreate={handleCommentCreate} />}
     </Flex>
   );
 };

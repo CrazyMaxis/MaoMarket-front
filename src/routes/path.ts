@@ -15,5 +15,6 @@ export enum PATH_AUTHORIZATION {
 
 export enum PATH_ADMINISTRATION_PANEL {
   ASSIGN_ROLES = 'assignRoles',
-  VERIFYREQUESTS = 'verifyRequests',
+  VERIFY_REQUESTS = 'verifyRequests',
+  CATTERY_CATS = 'catteryCats',
 }

@@ -12,7 +12,7 @@ export const Pagination = ({ ...props }: PaginationProps) => {
   return (
     <AntdPagination
       className={styles.pagination}
-      align="end"
+      align="start"
       showSizeChanger={false}
       showTitle={false}
       hideOnSinglePage

@@ -5,7 +5,7 @@ import { Flex, Spin } from 'antd';
 import CatService from 'api/services/CatService';
 import UserService from 'api/services/UserService';
 import { ROLES_OPTIONS } from 'constants/common-options';
-import { IUserCat } from 'models/ICat';
+import { IShortCat } from 'models/ICat';
 import { IUserInstance } from 'models/IUserInstance';
 import { CatItemInfo } from 'pages/profile/View/components/ProfileInfo/components/CatsInfo/components/CatItemInfo';
 import { toggleRefresh } from 'reduxApp/refsreshSlice';
@@ -102,7 +102,7 @@ export const DrawerContent = ({ user }: IDrawerContentProps) => {
       </Flex>
 
       <Flex align="center" gap={24} wrap>
-        {res?.data.map((cat: IUserCat) => (
+        {res?.data.map((cat: IShortCat) => (
           <CatItemInfo data={cat} key={cat.id} />
         ))}
       </Flex>

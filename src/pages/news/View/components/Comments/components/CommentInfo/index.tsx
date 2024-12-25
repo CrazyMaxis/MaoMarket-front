@@ -52,8 +52,8 @@ export const CommentInfo = ({ comment, handleDelete }: ICommnetInfoProps) => {
           <div>{formattedDate}</div>
 
           {user &&
-            allowedRoles.includes(user.role) &&
-            user.id === comment.user.id && (
+            (allowedRoles.includes(user.role) ||
+              user.id === comment.user.id) && (
               <Button icon={<Feather type="busketIcon" />} onClick={onDelete} />
             )}
         </Flex>

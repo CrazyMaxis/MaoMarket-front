@@ -27,6 +27,7 @@ export const useCreateCat = () => {
     formData.append('Description', data.description || '');
     formData.append('FatherId', data.fatherId || '');
     formData.append('MotherId', data.motherId || '');
+    formData.append('IsCattery', (data.isCattery || false).toString());
 
     if (data.photos && data.photos.length > 0) {
       data.photos.forEach((photo: File) => {

@@ -26,6 +26,7 @@ export const useEditCat = () => {
   const onSave = async (data: CatScheme) => {
     const formData = new FormData();
     formData.append('Description', data.description || '');
+    formData.append('IsCattery', (data.isCattery || false).toString());
 
     const photosToDelete = oldPhotos.filter(
       (oldPhoto) =>

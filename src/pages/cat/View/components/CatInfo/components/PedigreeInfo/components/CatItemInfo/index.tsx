@@ -1,11 +1,11 @@
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { Flex } from 'antd';
-import { IUserCat } from 'models/ICat';
+import { IShortCat } from 'models/ICat';
 import styles from './index.module.scss';
 
 interface ICatItemInfoProps {
-  data: IUserCat;
+  data: IShortCat;
 }
 
 export const CatItemInfo = ({ data }: ICatItemInfoProps) => {

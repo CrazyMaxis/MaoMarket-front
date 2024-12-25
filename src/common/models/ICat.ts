@@ -11,16 +11,17 @@ export interface ICat {
       url: string;
     },
   ];
+  isCattery: boolean;
 }
 
 export interface ICatPedigree {
-  mother: IUserCat;
-  father: IUserCat;
-  children: Array<IUserCat>;
-  partner: IUserCat;
+  mother: IShortCat;
+  father: IShortCat;
+  children: Array<IShortCat>;
+  partner: IShortCat;
 }
 
-export interface IUserCat {
+export interface IShortCat {
   id: string;
   name: string;
   gender: string;

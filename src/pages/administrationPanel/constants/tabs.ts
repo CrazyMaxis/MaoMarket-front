@@ -8,6 +8,10 @@ export const TAB_NODES: ITab[] = [
   },
   {
     i18key: 'tabs.verifyRequests',
-    url: PATH_ADMINISTRATION_PANEL.VERIFYREQUESTS,
+    url: PATH_ADMINISTRATION_PANEL.VERIFY_REQUESTS,
+  },
+  {
+    i18key: 'tabs.catteryCats',
+    url: PATH_ADMINISTRATION_PANEL.CATTERY_CATS,
   },
 ];

@@ -35,6 +35,7 @@ const AssignRoles = lazy(() => import('pages/administrationPanel/assignRoles'));
 const VerifyRequests = lazy(
   () => import('pages/administrationPanel/verifyRequests'),
 );
+const CatteryCats = lazy(() => import('pages/administrationPanel/catteryCats'));
 
 const ProtectedRouteByRole = ({
   roles,
@@ -210,8 +211,12 @@ export const Router = () => (
                   index: true,
                 },
                 {
-                  path: PATH_ADMINISTRATION_PANEL.VERIFYREQUESTS,
+                  path: PATH_ADMINISTRATION_PANEL.VERIFY_REQUESTS,
                   element: <VerifyRequests />,
+                },
+                {
+                  path: PATH_ADMINISTRATION_PANEL.CATTERY_CATS,
+                  element: <CatteryCats />,
                 },
               ],
             },
