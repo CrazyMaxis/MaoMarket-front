@@ -19,9 +19,7 @@ const View = () => {
   const location = useLocation();
   const { id } = useParams();
   const user = useAppSelector((state) => getUser(state));
-  const { loadData, isLoading, res, error } = useDataLoader(
-    NewsService.getNewsInfo,
-  );
+  const { loadData, isLoading, res } = useDataLoader(NewsService.getNewsInfo);
 
   const onClickBack = () => {
     navigate(-1);

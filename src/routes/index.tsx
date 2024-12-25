@@ -10,7 +10,7 @@ import { Roles } from 'enums/Roles';
 import { CommonLayout } from 'components';
 import { useAppSelector } from 'hooks/customReduxHooks';
 import Page from './components/Page';
-import { PATH, PATH_AUTHORIZATION } from './path';
+import { PATH, PATH_ADMINISTRATION_PANEL, PATH_AUTHORIZATION } from './path';
 
 const Home = lazy(() => import('pages/home'));
 const Authorization = lazy(() => import('pages/authorization'));
@@ -29,6 +29,9 @@ const NewsList = lazy(() => import('pages/news/List'));
 const NewsCreate = lazy(() => import('pages/news/Create'));
 const PostEdit = lazy(() => import('pages/news/Edit'));
 const PostView = lazy(() => import('pages/news/View'));
+
+const AdministrationPanel = lazy(() => import('pages/administrationPanel'));
+const AssignRoles = lazy(() => import('pages/administrationPanel/assignRoles'));
 
 const ProtectedRouteByRole = ({
   roles,
@@ -191,6 +194,17 @@ export const Router = () => (
                 {
                   path: ':id/edit',
                   element: <PostEdit />,
+                },
+              ],
+            },
+            {
+              path: PATH.ADMINISTRATION_PANEL,
+              element: <AdministrationPanel />,
+              children: [
+                {
+                  path: PATH_ADMINISTRATION_PANEL.ASSIGN_ROLES,
+                  element: <AssignRoles />,
+                  index: true,
                 },
               ],
             },

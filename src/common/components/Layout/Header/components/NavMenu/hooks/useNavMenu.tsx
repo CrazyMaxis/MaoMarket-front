@@ -8,13 +8,12 @@ const useNavMenu = () => {
   const items: INavItemMenu[] = [
     { i18Key: 'news', href: 'news', key: 'news' },
     { i18Key: 'advertisements', href: 'advertisements', key: 'advertisements' },
-    { i18Key: 'aboutUs', href: 'aboutUs', key: 'aboutUs' },
   ];
 
   if (userRole === Roles.ADMINISTRATOR || userRole === Roles.MODERATOR) {
     items.push({
       i18Key: 'administrationPanel',
-      href: `administrationPanel`,
+      href: `administrationPanel/assignRoles`,
       key: 'administrationPanel',
     });
   }

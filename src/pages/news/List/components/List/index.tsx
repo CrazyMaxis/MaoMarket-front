@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Flex } from 'antd';
 import NewsService from 'api/services/NewsService';
@@ -10,7 +10,6 @@ import { NewsItem } from './components/NewsItem';
 
 export const List = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [currentPage, setCurrentPage] = useState(1);
   const { loadData, isLoading, res, error } = useDataLoader(
     NewsService.getNews,
   );

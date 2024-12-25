@@ -9,7 +9,7 @@
   "footer": {
     "contacts": {
       "title": "Контакты:",
-      "mainInfo": "Эл. почта: maomarket@gmail.com<br/>Телефон: +375299661446"
+      "mainInfo": "Эл. почта: maomarket2024@gmail.com<br/>Телефон: +375299661446"
     },
     "copyright": "© {{currentYear}} - MaoMarket"
   },
@@ -17,7 +17,6 @@
     "items": {
       "news": "Новости",
       "advertisements": "Объявления",
-      "aboutUs": "Почему мы",
       "administrationPanel": "Панель администрирования"
     }
   }

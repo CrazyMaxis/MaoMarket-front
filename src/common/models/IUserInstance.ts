@@ -4,6 +4,8 @@ export interface IUserInstance {
   id: string;
   name: string;
   email: string;
+  phoneNumber: string;
+  telegramUsername: string;
   role: Roles;
   isBlocked: boolean;
   verificationRequested: boolean;

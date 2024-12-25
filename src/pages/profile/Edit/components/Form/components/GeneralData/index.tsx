@@ -21,6 +21,16 @@ export const GeneralData = () => {
           required
           disabled
         />
+        <InputControl
+          name="phoneNumber"
+          label={t('labels.phoneNumber')}
+          inputProps={{ placeholder: t('placeholders.phoneNumber') }}
+        />
+        <InputControl
+          name="telegramUsername"
+          label={t('labels.telegramUsername')}
+          inputProps={{ placeholder: t('placeholders.telegramUsername') }}
+        />
       </Col>
     </Row>
   );

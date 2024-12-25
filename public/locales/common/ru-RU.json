@@ -1,15 +1,16 @@
 {
   "resetFilters": "Сбросить фильтры",
   "schemesMessages": {
-    "REQUIRED": "Обязательное поле"
+    "REQUIRED": "Обязательное поле",
+    "PHONE_MAX": "Максимальное количество символов 15"
   },
   "paginationRange": "{{start}}-{{end}} из {{total}}",
-  "role": {
-    "Administrator": "администратор",
-    "Moderator": "модератор",
-    "NewsEditor": "редактор новостей",
-    "VerifiedUser": "верифицированный пользователь",
-    "User": "неверифицированный пользователь"
+  "roles": {
+    "Administrator": "Администратор",
+    "Moderator": "Модератор",
+    "NewsEditor": "Редактор новостей",
+    "VerifiedUser": "Верифицированный пользователь",
+    "User": "Неверифицированный пользователь"
   },
   "gender": {
     "Male": "кот",
@@ -18,5 +19,9 @@
   "sortDirection": {
     "asc": "По возрастанию",
     "desc": "По убыванию"
+  },
+  "isBlocked": {
+    "BLOCKED": "Заблокирован",
+    "NOT_BLOCKED": "Не заблокирован"
   }
 }

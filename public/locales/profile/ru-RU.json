@@ -14,18 +14,24 @@
       "role": "Роль",
       "isVerify": "Верефикация",
       "verifyRequestAlready": "Вы уже отправили запрос на верификацию",
-      "verifyRequest": "Отправить запрос на верификацию"
+      "verifyRequest": "Отправить запрос на верификацию",
+      "phoneNumber": "Номер телефона",
+      "telegramUsername": "Имя пользователя Telegram"
     }
   },
   "form": {
     "title": "Редактирование профиля",
     "labels": {
       "name": "ФИО",
-      "email": "Email"
+      "email": "Email",
+      "phoneNumber": "Номер телефона",
+      "telegramUsername": "Имя пользователя Telegram"
     },
     "placeholders": {
       "name": "Введите ФИО",
-      "email": "Введите Email"
+      "email": "Введите Email",
+      "phoneNumber": "Введите номер",
+      "telegramUsername": "Введите имя пользователя Telegram"
     }
   }
 }

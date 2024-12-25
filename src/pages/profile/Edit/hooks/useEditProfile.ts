@@ -2,12 +2,16 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import UserService from 'api/services/UserService';
+import { ProfileScheme, ProfileValidationScheme } from 'schemes/profile';
+import { yupResolver } from '@hookform/resolvers/yup';
 import { getUser } from 'reduxApp/authentification';
 import { useAppSelector } from 'hooks/customReduxHooks';
 import { PATH } from 'routes/path';
 
 export const useEditProfile = () => {
-  const methods = useForm<{ name: string; email: string }>();
+  const methods = useForm<ProfileScheme>({
+    resolver: yupResolver(ProfileValidationScheme),
+  });
   const navigate = useNavigate();
   const user = useAppSelector((state) => getUser(state));
 
@@ -17,11 +21,10 @@ export const useEditProfile = () => {
     navigate(PATH.PROFILE);
   };
 
-  const onSave = async (data: { name: string; email: string }) => {
+  const onSave = async (data: ProfileScheme) => {
     const userId = user?.id;
-    const { name } = data;
     if (userId) {
-      await UserService.updateProfile(userId, name);
+      await UserService.updateProfile(userId, data);
       navigate(PATH.PROFILE);
       window.location.reload();
     }
@@ -31,6 +34,8 @@ export const useEditProfile = () => {
     if (user) {
       setValue('name', user.name);
       setValue('email', user.email);
+      setValue('phoneNumber', user.phoneNumber);
+      setValue('telegramUsername', user.telegramUsername);
     }
   }, [user, setValue]);
 

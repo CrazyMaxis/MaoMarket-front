@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import UserService from 'api/services/UserService';
 import { Roles } from 'enums/Roles';
 import { getUser } from 'reduxApp/authentification';
@@ -31,8 +32,24 @@ export const GeneralData = () => {
           value: user?.email,
         },
         {
+          title: t('phoneNumber'),
+          value: user?.phoneNumber,
+        },
+        {
+          title: t('telegramUsername'),
+          value: (
+            <Link
+              to={`https://t.me/${user?.telegramUsername}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {user?.telegramUsername}
+            </Link>
+          ),
+        },
+        {
           title: t('role'),
-          value: tCommon(`role.${user?.role}`),
+          value: tCommon(`roles.${user?.role}`),
         },
         ...(user?.role === Roles.USER
           ? [
