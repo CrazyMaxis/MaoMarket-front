@@ -1,14 +1,17 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSearchParams } from 'react-router-dom';
+import { PAGE_SIZE } from 'constants/basic';
 import { IUserInstance } from 'models/IUserInstance';
 import { Drawer, Table } from 'components';
 import { DrawerContent } from './components/DrawerContent';
 import { useTableRequests } from './hooks/useTableRequests';
 
 export const TableRequests = () => {
-  const { columns, data } = useTableRequests();
+  const { columns, data, totalCount } = useTableRequests();
   const [selectedUser, setSelectedUser] = useState<IUserInstance | null>(null);
   const [isOpen, setIsOpen] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
   const { t } = useTranslation('administrationPanel', {
     keyPrefix: 'assignRoles.drawer',
   });
@@ -36,6 +39,16 @@ export const TableRequests = () => {
         onRow={(record) => ({
           onClick: () => onRowClick(record as IUserInstance),
         })}
+        pagination={{
+          pageSize: PAGE_SIZE,
+          total: totalCount,
+          current: Number(searchParams.get('page')) || 1,
+          onChange: (page) =>
+            setSearchParams((prev) => {
+              prev.set('page', String(page));
+              return prev;
+            }),
+        }}
       />
       <Drawer
         open={isOpen}

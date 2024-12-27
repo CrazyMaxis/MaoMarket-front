@@ -1,0 +1,15 @@
+@use 'styles/scss/palette.module.scss' as colors;
+
+.container {
+  padding: 24px;
+  border-radius: 20px;
+  background-color: colors.$blue-11;
+
+  img {
+    width: 250px;
+  }
+}
+
+.selected {
+  background-color: colors.$gray !important;
+}

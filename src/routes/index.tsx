@@ -39,6 +39,7 @@ const CatteryCats = lazy(() => import('pages/administrationPanel/catteryCats'));
 
 const AdvertisementsList = lazy(() => import('pages/advertisement/List'));
 const AdvertisementsCreate = lazy(() => import('pages/advertisement/Create'));
+const AdvertisementsEdit = lazy(() => import('pages/advertisement/Edit'));
 
 const ProtectedRouteByRole = ({
   roles,
@@ -121,119 +122,125 @@ export const Router = () => (
             {
               path: PATH.HOME,
               element: <Page />,
-              children: [{ element: <Home />, index: true }],
-            },
-            {
-              path: PATH.AUTHARIZATION,
-              element: (
-                <ProtectedRouteByNotAuth>
-                  <Authorization />
-                </ProtectedRouteByNotAuth>
-              ),
               children: [
+                { element: <Home />, index: true },
                 {
-                  path: PATH_AUTHORIZATION.LOGIN,
-                  element: <Login />,
-                  index: true,
+                  path: PATH.AUTHARIZATION,
+                  element: (
+                    <ProtectedRouteByNotAuth>
+                      <Authorization />
+                    </ProtectedRouteByNotAuth>
+                  ),
+                  children: [
+                    {
+                      path: PATH_AUTHORIZATION.LOGIN,
+                      element: <Login />,
+                      index: true,
+                    },
+                    {
+                      path: PATH_AUTHORIZATION.REGISTER,
+                      element: <Register />,
+                    },
+                    {
+                      path: PATH_AUTHORIZATION.VERIFY,
+                      element: <Verify />,
+                    },
+                  ],
                 },
                 {
-                  path: PATH_AUTHORIZATION.REGISTER,
-                  element: <Register />,
+                  path: PATH.PROFILE,
+                  element: (
+                    <ProtectedRouteByAuth>
+                      <Page />
+                    </ProtectedRouteByAuth>
+                  ),
+                  children: [
+                    {
+                      element: <Profile />,
+                      index: true,
+                    },
+                    {
+                      path: 'edit',
+                      element: <ProfileEdit />,
+                    },
+                  ],
                 },
                 {
-                  path: PATH_AUTHORIZATION.VERIFY,
-                  element: <Verify />,
-                },
-              ],
-            },
-            {
-              path: PATH.PROFILE,
-              element: (
-                <ProtectedRouteByAuth>
-                  <Page />
-                </ProtectedRouteByAuth>
-              ),
-              children: [
-                {
-                  element: <Profile />,
-                  index: true,
-                },
-                {
-                  path: 'edit',
-                  element: <ProfileEdit />,
-                },
-              ],
-            },
-            {
-              path: PATH.CAT,
-              element: <Page />,
-              children: [
-                {
-                  path: 'create',
-                  element: <CatCreate />,
+                  path: PATH.CAT,
+                  element: <Page />,
+                  children: [
+                    {
+                      path: 'create',
+                      element: <CatCreate />,
+                    },
+                    {
+                      path: ':id',
+                      element: <CatView />,
+                    },
+                    {
+                      path: ':id/edit',
+                      element: <CatEdit />,
+                    },
+                  ],
                 },
                 {
-                  path: ':id',
-                  element: <CatView />,
+                  path: PATH.NEWS,
+                  element: <Page />,
+                  children: [
+                    {
+                      element: <NewsList />,
+                      index: true,
+                    },
+                    {
+                      path: 'create',
+                      element: <NewsCreate />,
+                    },
+                    {
+                      path: ':id',
+                      element: <PostView />,
+                    },
+                    {
+                      path: ':id/edit',
+                      element: <PostEdit />,
+                    },
+                  ],
                 },
                 {
-                  path: ':id/edit',
-                  element: <CatEdit />,
-                },
-              ],
-            },
-            {
-              path: PATH.NEWS,
-              element: <Page />,
-              children: [
-                {
-                  element: <NewsList />,
-                  index: true,
-                },
-                {
-                  path: 'create',
-                  element: <NewsCreate />,
-                },
-                {
-                  path: ':id',
-                  element: <PostView />,
+                  path: PATH.ADMINISTRATION_PANEL,
+                  element: <AdministrationPanel />,
+                  children: [
+                    {
+                      path: PATH_ADMINISTRATION_PANEL.ASSIGN_ROLES,
+                      element: <AssignRoles />,
+                      index: true,
+                    },
+                    {
+                      path: PATH_ADMINISTRATION_PANEL.VERIFY_REQUESTS,
+                      element: <VerifyRequests />,
+                    },
+                    {
+                      path: PATH_ADMINISTRATION_PANEL.CATTERY_CATS,
+                      element: <CatteryCats />,
+                    },
+                  ],
                 },
                 {
-                  path: ':id/edit',
-                  element: <PostEdit />,
-                },
-              ],
-            },
-            {
-              path: PATH.ADMINISTRATION_PANEL,
-              element: <AdministrationPanel />,
-              children: [
-                {
-                  path: PATH_ADMINISTRATION_PANEL.ASSIGN_ROLES,
-                  element: <AssignRoles />,
-                  index: true,
-                },
-                {
-                  path: PATH_ADMINISTRATION_PANEL.VERIFY_REQUESTS,
-                  element: <VerifyRequests />,
-                },
-                {
-                  path: PATH_ADMINISTRATION_PANEL.CATTERY_CATS,
-                  element: <CatteryCats />,
-                },
-              ],
-            },
-            {
-              path: PATH.ADVERTISEMENTS,
-              element: <Page />,
-              children: [
-                {
-                  element: <AdvertisementsList />,
-                  index: true,
-                },
-                {
-                  path: 'create',
-                  element: <AdvertisementsCreate />,
+                  path: PATH.ADVERTISEMENTS,
+                  element: <Page />,
+                  children: [
+                    {
+                      element: <AdvertisementsList />,
+                      index: true,
+                    },
+                    {
+                      path: 'create',
+                      element: <AdvertisementsCreate />,
+                    },
+                    {
+                      path: ':id/edit',
+                      element: <AdvertisementsEdit />,
+                    },
+                  ],
                 },
               ],
             },

@@ -52,17 +52,6 @@ export const PedigreeInfo = ({ cat }: IPedigreeInfoProps) => {
           </Flex>
 
           <Flex gap={16} vertical align="center">
-            <div className={styles.title}>{t('partner')}</div>
-            {pedigree.partner ? (
-              <Flex justify="center">
-                <CatItemInfo data={pedigree.partner} />
-              </Flex>
-            ) : (
-              <div className={styles.noInfo}>{t('noInfo')}</div>
-            )}
-          </Flex>
-
-          <Flex gap={16} vertical align="center">
             <div className={styles.title}>{t('children')}</div>
             <Flex gap={16} justify="center">
               {pedigree.children.length > 0 ? (

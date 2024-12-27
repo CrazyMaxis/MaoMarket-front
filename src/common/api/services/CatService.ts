@@ -15,6 +15,10 @@ export default class CatService {
     return $api.get('Cat/cattery', { params });
   }
 
+  static async getCatsWithoutAdvertisements() {
+    return $api.get('Cat/without-advertisements');
+  }
+
   static async getCatInfo(catId: string) {
     return $api.get(`Cat/${catId}`);
   }

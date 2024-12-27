@@ -87,6 +87,7 @@ export const FilterForm = () => {
             selectProps={{
               placeholder: t('placeholders.sortBy'),
               options: [
+                { label: 'Цена', value: 'price' },
                 { label: 'Дата создания объявления', value: 'createdAt' },
                 { label: 'Дата рождения кота', value: 'birthDate' },
               ],

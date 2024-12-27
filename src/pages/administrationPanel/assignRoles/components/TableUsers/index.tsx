@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
+import { useSearchParams } from 'react-router-dom';
 import { Flex } from 'antd';
 import UserService from 'api/services/UserService';
+import { PAGE_SIZE } from 'constants/basic';
 import { IUserInstance } from 'models/IUserInstance';
 import { toggleRefresh } from 'reduxApp/refsreshSlice';
 import { Button, Drawer, Feather, Table } from 'components';
@@ -10,8 +12,9 @@ import { DrawerContent } from './components/DrawerContent';
 import { useTableUsers } from './hooks/useTableUsers';
 
 export const TableUsers = () => {
-  const { columns, data } = useTableUsers();
+  const { columns, data, totalCount } = useTableUsers();
   const [selectedUser, setSelectedUser] = useState<IUserInstance | null>(null);
+  const [searchParams, setSearchParams] = useSearchParams();
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useTranslation('administrationPanel', {
     keyPrefix: 'assignRoles.drawer',
@@ -50,6 +53,16 @@ export const TableUsers = () => {
         onRow={(record) => ({
           onClick: () => onRowClick(record as IUserInstance),
         })}
+        pagination={{
+          pageSize: PAGE_SIZE,
+          total: totalCount,
+          current: Number(searchParams.get('page')) || 1,
+          onChange: (page) =>
+            setSearchParams((prev) => {
+              prev.set('page', String(page));
+              return prev;
+            }),
+        }}
       />
       <Drawer
         open={isOpen}

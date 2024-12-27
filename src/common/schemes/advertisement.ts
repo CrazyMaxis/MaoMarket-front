@@ -3,7 +3,7 @@ import * as yup from 'yup';
 
 export const AdvertisementValidationScheme = yup.object({
   price: yup.number().required(REQUIRED),
-  catId: yup.string().required(REQUIRED),
+  catId: yup.string(),
 });
 
 export type AdvertisementScheme = yup.InferType<

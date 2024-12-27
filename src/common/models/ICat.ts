@@ -20,7 +20,6 @@ export interface ICatPedigree {
   mother: IShortCat;
   father: IShortCat;
   children: Array<IShortCat>;
-  partner: IShortCat;
 }
 
 export interface IShortCat {

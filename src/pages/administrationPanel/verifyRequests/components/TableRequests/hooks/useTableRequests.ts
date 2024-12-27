@@ -12,7 +12,7 @@ export const useTableRequests = () => {
   const { t } = useTranslation('administrationPanel', {
     keyPrefix: 'assignRoles',
   });
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const refresh = useSelector(
     (state: RootState) => state.refreshReducer.refresh,
   );
@@ -39,13 +39,5 @@ export const useTableRequests = () => {
     { key: 'name', dataIndex: 'name', title: t('columns.name') },
   ];
 
-  const onPageChange = (page: number) => {
-    setSearchParams((prev) => {
-      const updatedParams = new URLSearchParams(prev);
-      updatedParams.set('page', String(page));
-      return updatedParams;
-    });
-  };
-
-  return { columns, data: res?.data.items, onPageChange };
+  return { columns, data: res?.data.items, totalCount: res?.data.totalCount };
 };

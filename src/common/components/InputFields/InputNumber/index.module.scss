@@ -1,0 +1,11 @@
+@use 'styles/scss/palette.module.scss' as colors;
+
+.root {
+  width: 100%;
+
+  input::placeholder {
+    font-size: 14px;
+    font-family: Roboto;
+    color: colors.$gray-18 !important;
+  }
+}

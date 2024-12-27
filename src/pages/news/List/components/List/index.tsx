@@ -10,9 +10,7 @@ import { NewsItem } from './components/NewsItem';
 
 export const List = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const { loadData, isLoading, res, error } = useDataLoader(
-    NewsService.getNews,
-  );
+  const { loadData, isLoading, res } = useDataLoader(NewsService.getNews);
 
   const loadNews = useCallback(() => {
     const page = searchParams.get('page') || '1';

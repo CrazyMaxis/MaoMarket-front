@@ -3,16 +3,17 @@ import { useSearchParams } from 'react-router-dom';
 import { Flex } from 'antd';
 import AdvertisementService from 'api/services/AdvertisementService';
 import { PAGE_SIZE } from 'constants/basic';
+import { IAdvertisement } from 'models/IAdvertisement';
 import { Pagination } from 'components';
 import useDataLoader from 'hooks/useDataLoader';
+import { AdvertisementItem } from './components/AdvertisementItem';
 
 export const List = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const { loadData, isLoading, res } = useDataLoader(
     AdvertisementService.getAdvertisements,
   );
-
-  const loadCats = useCallback(() => {
+  const loadAdvertisements = useCallback(() => {
     const page = searchParams.get('page') || '1';
     loadData({
       ...Object.fromEntries(searchParams),
@@ -22,8 +23,8 @@ export const List = () => {
   }, [searchParams]);
 
   useEffect(() => {
-    loadCats();
-  }, [loadCats]);
+    loadAdvertisements();
+  }, [loadAdvertisements]);
 
   const onPageChange = (page: number) => {
     setSearchParams((prev) => {
@@ -33,8 +34,30 @@ export const List = () => {
     });
   };
 
+  const handleDelete = (id: string) => {
+    AdvertisementService.deleteAdvertisement(id).then(() => {
+      const currentPage = parseInt(searchParams.get('page') || '1');
+      const currentPageItems = res?.data.items.length || 0;
+
+      if (currentPage > 1 && currentPageItems === 1) {
+        onPageChange(currentPage - 1);
+      } else {
+        loadAdvertisements();
+      }
+    });
+  };
+
   return (
-    <Flex vertical gap={24}>
+    <Flex vertical gap={24} align="center">
+      {res?.data.items &&
+        res.data.items.length > 0 &&
+        res.data.items.map((adv: IAdvertisement) => (
+          <AdvertisementItem
+            data={adv}
+            key={adv.id}
+            handleDelete={handleDelete}
+          />
+        ))}
       <Pagination
         total={res?.data.totalCount}
         pageSize={PAGE_SIZE}
