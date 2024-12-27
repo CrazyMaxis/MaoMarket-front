@@ -18,4 +18,5 @@ export enum PATH_ADMINISTRATION_PANEL {
   ASSIGN_ROLES = 'assignRoles',
   VERIFY_REQUESTS = 'verifyRequests',
   CATTERY_CATS = 'catteryCats',
+  BREEDS = 'breeds',
 }

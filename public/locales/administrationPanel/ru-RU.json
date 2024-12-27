@@ -3,7 +3,8 @@
   "tabs": {
     "assignRoles": "Назначение ролей",
     "verifyRequests": "Проверка запросов на верификацию",
-    "catteryCats": "Коты питомника"
+    "catteryCats": "Коты питомника",
+    "breeds": "Породы"
   },
   "assignRoles": {
     "placeholders": {
@@ -44,6 +45,13 @@
       "searchName": "Введите имя",
       "gender": "Выберите пол",
       "breed": "Выберите породу"
+    }
+  },
+  "breeds": {
+    "add": "Добавить",
+    "columns": {
+      "id": "Идентификатор породы",
+      "name": "Название"
     }
   }
 }

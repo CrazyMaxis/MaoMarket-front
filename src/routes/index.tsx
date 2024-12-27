@@ -31,6 +31,7 @@ const PostView = lazy(() => import('pages/news/View'));
 
 const AdministrationPanel = lazy(() => import('pages/administrationPanel'));
 const AssignRoles = lazy(() => import('pages/administrationPanel/assignRoles'));
+const Breeds = lazy(() => import('pages/administrationPanel/breeds'));
 const VerifyRequests = lazy(
   () => import('pages/administrationPanel/verifyRequests'),
 );
@@ -203,6 +204,10 @@ export const Router = () => (
                     {
                       path: PATH_ADMINISTRATION_PANEL.CATTERY_CATS,
                       element: <CatteryCats />,
+                    },
+                    {
+                      path: PATH_ADMINISTRATION_PANEL.BREEDS,
+                      element: <Breeds />,
                     },
                   ],
                 },
