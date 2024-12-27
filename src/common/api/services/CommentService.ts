@@ -23,8 +23,4 @@ export default class CommentService {
   static async deleteComment(commentId: string) {
     return $api.delete(`Comment/${commentId}`);
   }
-
-  static async reactComment(commentId: string, action: 'Like' | 'Dislike') {
-    return $api.post(`Comment/${commentId}/react`, { action });
-  }
 }

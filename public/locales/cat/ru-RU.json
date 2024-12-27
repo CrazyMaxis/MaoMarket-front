@@ -8,7 +8,8 @@
     "generalData": "Основная информация",
     "parentsInfo": "Информация о родителях",
     "catPhotos": "Фотографии",
-    "pedigreeInfo": "Родословная"
+    "pedigreeInfo": "Родословная",
+    "contactInfo": "Информация о продавце"
   },
   "view": {
     "generalData": {
@@ -16,7 +17,10 @@
       "gender": "Пол",
       "breed": "Порода",
       "birthDate": "Дата рождения",
-      "description": "Описание"
+      "description": "Описание",
+      "isCattery": "Из питомника",
+      "true": "да",
+      "false": "нет"
     },
     "pedigreeInfo": {
       "parents": "Родители",
@@ -25,6 +29,17 @@
       "partner": "Партнер",
       "children": "Потомки",
       "noInfo": "Нет информации"
+    },
+    "contactInfo": {
+      "fromCattery": "Из питомника",
+      "address": "Адрес",
+      "addressInfo": "г. Минск ул. Матусевича д.6",
+      "email": "Email",
+      "emailInfo": "maomarket2024@gmail.com",
+      "phone": "Номер телефона",
+      "phoneInfo": "+375299661446",
+      "name": "ФИО продавца",
+      "telegram": "Имя пользователя Telegram"
     }
   },
   "form": {

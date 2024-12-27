@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Flex } from 'antd';
 import CommentService from 'api/services/CommentService';
 import dayjs from 'dayjs';
@@ -15,19 +14,7 @@ interface ICommnetInfoProps {
 }
 
 export const CommentInfo = ({ comment, handleDelete }: ICommnetInfoProps) => {
-  const [likes, setLikes] = useState(comment.likes || 0);
-  const [dislikes, setDislikes] = useState(comment.dislikes || 0);
   const user = useAppSelector((state) => getUser(state));
-
-  const onLike = async () => {
-    await CommentService.reactComment(comment.id, 'Like');
-    setLikes((prev) => prev + 1);
-  };
-
-  const onDislike = async () => {
-    await CommentService.reactComment(comment.id, 'Dislike');
-    setDislikes((prev) => prev + 1);
-  };
 
   const onDelete = async () => {
     await CommentService.deleteComment(comment.id);
@@ -59,14 +46,6 @@ export const CommentInfo = ({ comment, handleDelete }: ICommnetInfoProps) => {
         </Flex>
       </Flex>
       <div>{comment.body}</div>
-      <Flex gap={16} justify="flex-end">
-        <Button icon={<Feather type="like" />} onClick={onLike}>
-          {likes}
-        </Button>
-        <Button icon={<Feather type="dislike" />} onClick={onDislike}>
-          {dislikes}
-        </Button>
-      </Flex>
     </Flex>
   );
 };

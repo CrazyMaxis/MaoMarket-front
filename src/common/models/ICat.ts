@@ -1,4 +1,5 @@
 import { IBreed } from './IBreed';
+import { IUserForCat } from './IUserInstance';
 
 export interface ICat {
   id: string;
@@ -14,6 +15,7 @@ export interface ICat {
     },
   ];
   isCattery: boolean;
+  user: IUserForCat;
 }
 
 export interface ICatPedigree {

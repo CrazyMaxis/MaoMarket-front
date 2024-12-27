@@ -3,9 +3,6 @@ export interface INews {
   title: string;
   body: string;
   image: string;
-  hashtags: string[];
-  likes: number;
-  dislikes: number;
   createdAt: string;
 }
 

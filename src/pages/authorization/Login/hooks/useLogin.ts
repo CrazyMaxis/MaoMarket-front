@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
@@ -9,11 +9,14 @@ import {
 import { yupResolver } from '@hookform/resolvers/yup';
 import {
   clearError,
+  clearIsBlocked,
   getStateAuth,
   getStateAuthError,
+  getStateBlocked,
   getStateVerifyError,
   login,
 } from 'reduxApp/authentification';
+import { NotificationContext } from 'contexts/NotificationProvider';
 import { useAppDispatch, useAppSelector } from 'hooks/customReduxHooks';
 import { PATH, PATH_AUTHORIZATION } from 'routes/path';
 
@@ -26,7 +29,9 @@ export const useLogin = () => {
   const isError = useAppSelector((state) => getStateAuthError(state));
   const isVerifyError = useAppSelector((state) => getStateVerifyError(state));
   const isAuth = useAppSelector((state) => getStateAuth(state));
+  const isBlocked = useAppSelector((state) => getStateBlocked(state));
   const navigate = useNavigate();
+  const { notification } = useContext(NotificationContext);
 
   const { setError, watch, clearErrors, handleSubmit } = methods;
 
@@ -46,6 +51,17 @@ export const useLogin = () => {
       dispatch(clearError());
     }
   }, [isVerifyError]);
+
+  useEffect(() => {
+    if (isBlocked) {
+      notification.error({
+        message: t('error.title'),
+        description: t('error.message'),
+      });
+
+      dispatch(clearIsBlocked());
+    }
+  }, [isBlocked]);
 
   useEffect(() => {
     const subscription = watch(() => {

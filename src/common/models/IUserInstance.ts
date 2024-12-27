@@ -15,3 +15,11 @@ export interface IShortUser {
   id: string;
   name: string;
 }
+
+export interface IUserForCat {
+  id: string;
+  name: string;
+  email: string;
+  phoneNumber: string;
+  telegramUsername: string;
+}

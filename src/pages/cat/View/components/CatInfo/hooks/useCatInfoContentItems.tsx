@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { CollapseProps } from 'antd';
 import { ICat } from 'models/ICat';
 import { CatPhotos } from '../components/CatPhotos';
+import { ContactInfo } from '../components/ContactInfo';
 import { GeneralData } from '../components/GeneralData';
 import { PedigreeInfo } from '../components/PedigreeInfo';
 
@@ -16,7 +17,12 @@ export const useCatInfoContentItems = ({
     keyPrefix: 'labelsCollapse',
   });
 
-  const keys: string[] = ['generalData', 'catPhotos', 'pedigreeInfo'];
+  const keys: string[] = [
+    'generalData',
+    'catPhotos',
+    'pedigreeInfo',
+    'contactInfo',
+  ];
 
   const infoItems: CollapseProps['items'] = [
     {
@@ -33,6 +39,11 @@ export const useCatInfoContentItems = ({
       key: keys[2],
       label: t(keys[2]),
       children: <PedigreeInfo cat={cat} />,
+    },
+    {
+      key: keys[3],
+      label: t(keys[3]),
+      children: <ContactInfo cat={cat} />,
     },
   ];
 

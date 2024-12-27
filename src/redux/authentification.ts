@@ -81,6 +81,7 @@ interface AuthState {
   isLoading: boolean;
   isError: boolean;
   isVerifyError: boolean;
+  isBlocked: boolean;
 }
 
 const initialState: AuthState = {
@@ -88,6 +89,7 @@ const initialState: AuthState = {
   isLoading: false,
   isError: false,
   isVerifyError: false,
+  isBlocked: false,
 };
 
 export const slice = createSlice({
@@ -104,6 +106,10 @@ export const slice = createSlice({
     clearError: (state) => {
       state.isError = false;
       state.isVerifyError = false;
+      state.isBlocked = false;
+    },
+    clearIsBlocked: (state) => {
+      state.isBlocked = false;
     },
   },
   extraReducers: (builder) => {
@@ -116,6 +122,7 @@ export const slice = createSlice({
       .addCase(login.rejected, (state, action) => {
         const payload = action.payload as AxiosError<{ user: IUserInstance }>;
         state.isVerifyError = payload.status == 403;
+        state.isBlocked = payload.status == 423;
         state.user = payload?.response?.data?.user;
       })
       .addCase(register.fulfilled, (state, action) => {
@@ -162,16 +169,18 @@ export const slice = createSlice({
     getUser: (state) => state.user,
     getStateAuth: (state) => state.isAuth,
     getStateVerifyError: (state) => state.isVerifyError,
+    getStateBlocked: (state) => state.isBlocked,
     getStateAuthError: (state) => state.isError,
     getStateAuthLoading: (state) => state.isLoading,
   },
 });
 
-export const { logout, clearError } = slice.actions;
+export const { logout, clearError, clearIsBlocked } = slice.actions;
 export const {
   getUser,
   getStateAuth,
   getStateVerifyError,
+  getStateBlocked,
   getStateAuthError,
   getStateAuthLoading,
 } = slice.selectors;

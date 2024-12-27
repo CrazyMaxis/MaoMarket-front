@@ -56,7 +56,10 @@ export const TableRequests = () => {
         title={t('title')}
         destroyOnClose
       >
-        <DrawerContent user={selectedUser as IUserInstance} />
+        <DrawerContent
+          user={selectedUser as IUserInstance}
+          onCloseDrawer={onCloseDrawer}
+        />
       </Drawer>
     </>
   );

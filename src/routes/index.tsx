@@ -6,7 +6,6 @@ import {
   useNavigate,
 } from 'react-router-dom';
 import { Flex, Spin } from 'antd';
-import { Roles } from 'enums/Roles';
 import { CommonLayout } from 'components';
 import { useAppSelector } from 'hooks/customReduxHooks';
 import Page from './components/Page';
@@ -40,27 +39,6 @@ const CatteryCats = lazy(() => import('pages/administrationPanel/catteryCats'));
 const AdvertisementsList = lazy(() => import('pages/advertisement/List'));
 const AdvertisementsCreate = lazy(() => import('pages/advertisement/Create'));
 const AdvertisementsEdit = lazy(() => import('pages/advertisement/Edit'));
-
-const ProtectedRouteByRole = ({
-  roles,
-  children,
-}: {
-  roles?: Roles[];
-  children: ReactNode;
-}) => {
-  const userRole = useAppSelector((state) => state.auth.user?.role);
-
-  if (!userRole) {
-    return (
-      <Flex align="center" justify="center" style={{ height: '400px' }}>
-        <Spin size="large" />
-      </Flex>
-    );
-  }
-  return (
-    <>{roles ? roles.includes(userRole) ? children : <h2>hui</h2> : children}</>
-  );
-};
 
 type ProtectedRouteByAuthProps = {
   children: ReactNode;
@@ -207,7 +185,11 @@ export const Router = () => (
                 },
                 {
                   path: PATH.ADMINISTRATION_PANEL,
-                  element: <AdministrationPanel />,
+                  element: (
+                    <ProtectedRouteByAuth>
+                      <AdministrationPanel />
+                    </ProtectedRouteByAuth>
+                  ),
                   children: [
                     {
                       path: PATH_ADMINISTRATION_PANEL.ASSIGN_ROLES,

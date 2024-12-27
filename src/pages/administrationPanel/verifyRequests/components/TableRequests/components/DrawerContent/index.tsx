@@ -13,9 +13,10 @@ import useDataLoader from 'hooks/useDataLoader';
 
 interface IDrawerContentProps {
   user: IUserInstance;
+  onCloseDrawer: () => void;
 }
 
-export const DrawerContent = ({ user }: IDrawerContentProps) => {
+export const DrawerContent = ({ user, onCloseDrawer }: IDrawerContentProps) => {
   const { t } = useTranslation('administrationPanel', {
     keyPrefix: 'assignRoles.drawer',
   });
@@ -24,15 +25,17 @@ export const DrawerContent = ({ user }: IDrawerContentProps) => {
   const { loadData, isLoading, res } = useDataLoader(CatService.getUserCats);
 
   const onApprove = () => {
-    UserService.approveVerifyRequest(user.id).then(() =>
-      dispatch(toggleRefresh()),
-    );
+    UserService.approveVerifyRequest(user.id).then(() => {
+      dispatch(toggleRefresh());
+      onCloseDrawer();
+    });
   };
 
   const onReject = () => {
-    UserService.rejectVerifyRequest(user.id).then(() =>
-      dispatch(toggleRefresh()),
-    );
+    UserService.rejectVerifyRequest(user.id).then(() => {
+      dispatch(toggleRefresh());
+      onCloseDrawer();
+    });
   };
 
   useEffect(() => {

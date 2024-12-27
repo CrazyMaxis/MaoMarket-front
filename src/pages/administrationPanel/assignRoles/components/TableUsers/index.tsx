@@ -32,9 +32,20 @@ export const TableUsers = () => {
 
   const onDelete = () => {
     if (selectedUser) {
-      UserService.deleteUser(selectedUser?.id).then(() =>
-        dispatch(toggleRefresh()),
-      );
+      UserService.deleteUser(selectedUser?.id).then(() => {
+        dispatch(toggleRefresh());
+
+        const currentPage = Number(searchParams.get('page')) || 1;
+        const isLastItemOnPage = data.length === 1;
+
+        if (isLastItemOnPage && currentPage > 1) {
+          setSearchParams((prev) => {
+            const updatedParams = new URLSearchParams(prev);
+            updatedParams.set('page', String(currentPage - 1));
+            return updatedParams;
+          });
+        }
+      });
       onCloseDrawer();
     }
   };

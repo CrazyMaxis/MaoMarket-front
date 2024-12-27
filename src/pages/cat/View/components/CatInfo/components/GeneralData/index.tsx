@@ -29,6 +29,10 @@ export const GeneralData = ({ cat }: IGeneralDataProps) => {
           value: cat?.breed,
         },
         {
+          title: t('isCattery'),
+          value: t(`${cat?.isCattery}`),
+        },
+        {
           title: t('birthDate'),
           value: dayjs(cat?.birthDate).format('DD.MM.YYYY'),
         },
