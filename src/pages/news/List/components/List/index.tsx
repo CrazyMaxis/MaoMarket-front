@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Flex } from 'antd';
+import { Flex, Spin } from 'antd';
 import NewsService from 'api/services/NewsService';
 import { PAGE_SIZE } from 'constants/basic';
 import { INewsList } from 'models/INews';
@@ -32,6 +32,10 @@ export const List = () => {
       return updatedParams;
     });
   };
+
+  if (isLoading) {
+    return <Spin />;
+  }
 
   return (
     <Flex vertical gap={24} align="center">

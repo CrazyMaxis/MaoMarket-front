@@ -2,17 +2,20 @@ import { PropsWithChildren, ReactNode } from 'react';
 import { Flex } from 'antd';
 import useScreenWidthSize from 'hooks/useScreenWidthSize';
 import BurgerNavList from '../Layout/Header/components/NavMenu/components/BurgerNavList';
+import { Spinner } from '../Spinner';
 import styles from './index.module.scss';
 
 interface ICommunicationHeaderProps extends PropsWithChildren {
   title: ReactNode;
   buttons?: ReactNode;
+  isLoading?: boolean;
 }
 
 export const CommunicationHeader = ({
   title,
   children,
   buttons,
+  isLoading,
 }: ICommunicationHeaderProps) => {
   const { screenWidth } = useScreenWidthSize();
 
@@ -33,7 +36,13 @@ export const CommunicationHeader = ({
           <div>{buttons}</div>
         </Flex>
       </Flex>
-      <div className={styles.content}>{children}</div>
+      <Flex className={styles.content}>
+        {isLoading ? (
+          <Spinner />
+        ) : (
+          <div className={styles.children}>{children}</div>
+        )}
+      </Flex>
     </Flex>
   );
 };

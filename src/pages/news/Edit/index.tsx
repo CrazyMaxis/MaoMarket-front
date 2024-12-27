@@ -7,11 +7,12 @@ import styles from './index.module.scss';
 
 const Edit = () => {
   const { t } = useTranslation('news');
-  const { methods, onCancel, onSave } = useEditPost();
+  const { methods, onCancel, onSave, isLoading } = useEditPost();
 
   return (
     <CommunicationHeader
       title={t('form.titleEdit')}
+      isLoading={isLoading}
       buttons={
         <Flex gap={8}>
           <Button

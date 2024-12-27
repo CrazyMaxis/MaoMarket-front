@@ -47,5 +47,6 @@ export const useTableUsers = () => {
     columns,
     data: res?.data.items,
     totalCount: res?.data.totalCount,
+    isLoading,
   };
 };

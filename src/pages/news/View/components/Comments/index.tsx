@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
-import { Flex } from 'antd';
+import { Flex, Spin } from 'antd';
 import CommentService from 'api/services/CommentService';
 import { IComment } from 'models/IComment';
 import { getStateAuth } from 'reduxApp/authentification';
@@ -38,6 +38,10 @@ export const Comments = () => {
   const handleCommentCreate = () => {
     setRefresh((prev) => !prev);
   };
+
+  if (isLoading) {
+    return <Spin />;
+  }
 
   return (
     <Flex vertical gap={24} className={styles.container}>

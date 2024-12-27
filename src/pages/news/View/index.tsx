@@ -48,6 +48,7 @@ const View = () => {
 
   return (
     <CommunicationHeader
+      isLoading={isLoading || !res?.data}
       title={<Button onClick={onClickBack}>{t('back')}</Button>}
       buttons={
         user &&

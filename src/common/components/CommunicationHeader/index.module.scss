@@ -2,6 +2,8 @@
 
 .root {
   margin-bottom: 8px;
+  width: 100%;
+
   .headerContent {
     background-color: colors.$blue-44;
     margin-bottom: 10px;
@@ -24,8 +26,14 @@
   }
 
   .content {
+    display: flex;
     max-width: 1920px;
     width: 100%;
     padding: 0 32px;
+    min-height: calc(100vh - 245px - 172px);
+
+    .children {
+      flex-grow: 1;
+    }
   }
 }

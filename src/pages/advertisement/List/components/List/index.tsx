@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Flex } from 'antd';
+import { Flex, Spin } from 'antd';
 import AdvertisementService from 'api/services/AdvertisementService';
 import { PAGE_SIZE } from 'constants/basic';
 import { IAdvertisement } from 'models/IAdvertisement';
@@ -46,6 +46,10 @@ export const List = () => {
       }
     });
   };
+
+  if (isLoading) {
+    return <Spin />;
+  }
 
   return (
     <Flex vertical gap={24} align="center">

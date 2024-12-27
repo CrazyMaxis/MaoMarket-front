@@ -8,7 +8,7 @@ import { DrawerContent } from './components/DrawerContent';
 import { useTableRequests } from './hooks/useTableRequests';
 
 export const TableRequests = () => {
-  const { columns, data, totalCount } = useTableRequests();
+  const { columns, data, totalCount, isLoading } = useTableRequests();
   const [selectedUser, setSelectedUser] = useState<IUserInstance | null>(null);
   const [isOpen, setIsOpen] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -34,6 +34,7 @@ export const TableRequests = () => {
     <>
       <Table
         columns={columns}
+        loading={isLoading}
         dataSource={dataSource}
         isSelecting={false}
         onRow={(record) => ({

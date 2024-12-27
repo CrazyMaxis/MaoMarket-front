@@ -13,9 +13,7 @@ export const useEditPost = () => {
   });
   const { id } = useParams();
   const navigate = useNavigate();
-  const { loadData, isLoading, res, error } = useDataLoader(
-    NewsService.getNewsInfo,
-  );
+  const { loadData, isLoading, res } = useDataLoader(NewsService.getNewsInfo);
 
   useEffect(() => {
     loadData(id);
@@ -49,5 +47,5 @@ export const useEditPost = () => {
 
   useEffect(() => {}, []);
 
-  return { methods, onCancel, onSave: handleSubmit(onSave) };
+  return { methods, onCancel, onSave: handleSubmit(onSave), isLoading };
 };

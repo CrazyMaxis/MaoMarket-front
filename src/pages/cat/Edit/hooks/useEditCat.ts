@@ -30,7 +30,10 @@ export const useEditCat = () => {
 
     const photosToDelete = oldPhotos.filter(
       (oldPhoto) =>
-        !data.photos.some((newPhoto) => newPhoto.id === oldPhoto.id),
+        !data.photos.some(
+          (newPhoto: { id: string; url: string }) =>
+            newPhoto.id === oldPhoto.id,
+        ),
     );
 
     if (photosToDelete && photosToDelete.length > 0) {

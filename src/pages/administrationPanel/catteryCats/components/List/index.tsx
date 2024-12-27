@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Flex } from 'antd';
+import { Flex, Spin } from 'antd';
 import CatService from 'api/services/CatService';
 import { PAGE_SIZE } from 'constants/basic';
 import { IShortCat } from 'models/ICat';
@@ -32,6 +32,10 @@ export const List = () => {
       return updatedParams;
     });
   };
+
+  if (isLoading) {
+    return <Spin />;
+  }
 
   return (
     <Flex vertical gap={24}>

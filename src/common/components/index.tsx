@@ -16,6 +16,7 @@ export * from './Modal';
 export * from './Pagination';
 export * from './RadioButton';
 export * from './Required';
+export * from './Spinner';
 export * from './Status';
 export * from './Switch';
 export * from './Table';

@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import ConfigProvider from 'styles/ConfigProvider';
 import { checkAuth } from 'reduxApp/authentification';
+import { useAppDispatch } from 'hooks/customReduxHooks';
 import { Router } from './routes';
 
 const App = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(checkAuth());

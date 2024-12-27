@@ -39,5 +39,10 @@ export const useTableRequests = () => {
     { key: 'name', dataIndex: 'name', title: t('columns.name') },
   ];
 
-  return { columns, data: res?.data.items, totalCount: res?.data.totalCount };
+  return {
+    columns,
+    data: res?.data.items,
+    totalCount: res?.data.totalCount,
+    isLoading,
+  };
 };

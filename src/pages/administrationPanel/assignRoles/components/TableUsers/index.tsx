@@ -12,7 +12,7 @@ import { DrawerContent } from './components/DrawerContent';
 import { useTableUsers } from './hooks/useTableUsers';
 
 export const TableUsers = () => {
-  const { columns, data, totalCount } = useTableUsers();
+  const { columns, data, totalCount, isLoading } = useTableUsers();
   const [selectedUser, setSelectedUser] = useState<IUserInstance | null>(null);
   const [searchParams, setSearchParams] = useSearchParams();
   const [isOpen, setIsOpen] = useState(false);
@@ -59,6 +59,7 @@ export const TableUsers = () => {
     <>
       <Table
         columns={columns}
+        loading={isLoading}
         dataSource={dataSource}
         isSelecting={false}
         onRow={(record) => ({
