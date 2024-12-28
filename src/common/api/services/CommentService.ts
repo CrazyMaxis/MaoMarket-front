@@ -16,10 +16,6 @@ export default class CommentService {
     return $api.post('Comment', data);
   }
 
-  static async updateComment(commentId: string, data: CommentScheme) {
-    return $api.put(`Comment/${commentId}`, data);
-  }
-
   static async deleteComment(commentId: string) {
     return $api.delete(`Comment/${commentId}`);
   }
