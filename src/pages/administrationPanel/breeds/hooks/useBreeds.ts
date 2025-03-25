@@ -21,7 +21,6 @@ export const useBreeds = () => {
   }, [refresh]);
 
   const columns: TableProps['columns'] = [
-    { key: 'id', dataIndex: 'id', title: t('columns.id') },
     { key: 'name', dataIndex: 'name', title: t('columns.name') },
   ];
 

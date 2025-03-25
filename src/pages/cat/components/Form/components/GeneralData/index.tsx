@@ -90,6 +90,7 @@ export const GeneralData = ({ isEdit }: IGeneralDataProps) => {
           name="description"
           label={t('labels.description')}
           textAreaProps={{ placeholder: t('placeholders.description') }}
+          required
         />
       </Col>
       {(user?.role === Roles.ADMINISTRATOR ||

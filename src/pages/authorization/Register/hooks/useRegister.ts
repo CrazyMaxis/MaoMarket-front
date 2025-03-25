@@ -35,7 +35,8 @@ export const useRegister = () => {
     } else {
       notification.error({
         message: t('errorTitle'),
-        description: resultAction.error.message,
+        // @ts-expect-error: resultAction.payload is of type 'unknown'
+        description: resultAction.payload.response.data,
       });
     }
   };

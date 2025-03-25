@@ -56,7 +56,7 @@ export const useEditCat = () => {
 
     if (id) {
       await CatService.editCat(id, formData);
-      navigate(PATH.PROFILE);
+      navigate(`${PATH.CAT}/${id}`);
     }
   };
 
@@ -77,6 +77,7 @@ export const useEditCat = () => {
         description: catData.description,
         fatherId: parentsData.father?.name,
         motherId: parentsData.mother?.name,
+        isCattery: catData.isCattery,
         photos: catData.photos,
         photosToDelete: [],
         newPhotos: [],

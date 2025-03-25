@@ -4,7 +4,10 @@ import * as yup from 'yup';
 export const RegistrationValidationScheme = yup.object({
   name: yup.string().required(REQUIRED),
   email: yup.string().email().required(REQUIRED),
-  password: yup.string().min(6).required(REQUIRED),
+  password: yup
+    .string()
+    .min(6, 'Пароль должен содержать не меньше 6 символов')
+    .required(REQUIRED),
 });
 
 export type RegistrationScheme = yup.InferType<

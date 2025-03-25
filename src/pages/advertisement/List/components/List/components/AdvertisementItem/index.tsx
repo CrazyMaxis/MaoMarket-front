@@ -46,7 +46,7 @@ export const AdvertisementItem = ({
       <Flex vertical gap={8}>
         <Flex gap={8}>
           <b>{t('price')}</b>
-          <div>{data.price}</div>
+          <div>{data.price}$</div>
         </Flex>
         <Flex gap={8}>
           <b>{t('breed')}</b>

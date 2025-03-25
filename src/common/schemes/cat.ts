@@ -6,7 +6,7 @@ export const CatValidationScheme = yup.object({
   gender: yup.string().required(REQUIRED),
   birthDate: yup.string().required(REQUIRED),
   breedId: yup.string().required(REQUIRED),
-  description: yup.string(),
+  description: yup.string().required(REQUIRED),
   isCattery: yup.boolean(),
   fatherId: yup.string(),
   motherId: yup.string(),

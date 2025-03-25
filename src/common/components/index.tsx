@@ -1,3 +1,4 @@
+export * from './ActionButtonsView';
 export * from './BlockWithTitle';
 export * from './Button';
 export * from './Checkbox';

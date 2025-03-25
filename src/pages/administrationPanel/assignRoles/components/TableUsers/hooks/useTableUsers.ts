@@ -33,8 +33,8 @@ export const useTableUsers = () => {
   }, [loadUsers, refresh]);
 
   const columns: TableProps['columns'] = [
-    { key: 'id', dataIndex: 'id', title: t('columns.id') },
     { key: 'name', dataIndex: 'name', title: t('columns.name') },
+    { key: 'email', dataIndex: 'email', title: t('columns.email') },
     { key: 'role', dataIndex: 'role', title: t('columns.role') },
     {
       key: 'isBlocked',

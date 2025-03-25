@@ -7,19 +7,22 @@ import styles from './index.module.scss';
 export interface ITab {
   i18key: string;
   url: string;
+  activeTabKey?: string;
 }
 
-interface ITabs {
+export interface ITabsProps {
   tabs: ITab[];
   instance: string;
+  onClickItem?: (item: ITab) => void;
 }
 
-export const Tabs = ({ tabs, instance }: ITabs) => {
+export const Tabs = ({ tabs, instance, onClickItem }: ITabsProps) => {
   const { t } = useTranslation(instance);
   return (
     <Flex className={styles.tabWrapper}>
       {tabs.map((item) => (
         <NavLink
+          onClick={() => onClickItem?.(item)}
           key={item.i18key}
           to={item.url}
           className={({ isActive }) =>

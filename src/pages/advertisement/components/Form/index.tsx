@@ -76,7 +76,10 @@ export const Form = ({ methods }: IFormProps) => {
           <InputNumberControl
             name="price"
             label={t('labels.price')}
-            inputProps={{ placeholder: t('placeholders.price') }}
+            inputProps={{
+              placeholder: t('placeholders.price'),
+              min: 0,
+            }}
             required
           />
         </Col>
